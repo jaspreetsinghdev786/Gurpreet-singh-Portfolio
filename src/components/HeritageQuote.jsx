@@ -17,12 +17,12 @@ export const HeritageQuote = () => (
       className="absolute inset-0 h-full w-full object-cover opacity-[0.06]"
     />
     <div
-      className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-charcoal/15 to-transparent"
+      className="absolute inset-x-0 top-0 h-24 bg-charcoal/5"
       aria-hidden="true"
     />
     <Reveal className="relative mx-auto max-w-4xl px-6 py-28 text-center md:py-40">
       <blockquote>
-        <p className="display text-[clamp(1.6rem,3.6vw,2.75rem)] leading-[1.35] text-balance text-charcoal italic">
+        <p className="display text-[clamp(1.6rem,3.6vw,2.75rem)] leading-[1.35] text-balance text-dark-text italic">
           {heritageQuote.text}
         </p>
       </blockquote>

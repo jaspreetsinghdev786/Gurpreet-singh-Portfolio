@@ -8,7 +8,7 @@ export const QuoteBlock = ({ text, attribution, tone = "light" }) => {
       <Reveal className="mx-auto max-w-4xl px-6 py-28 text-center md:py-36">
         <div className="mx-auto h-px w-16 rule-gold" aria-hidden="true" />
         <blockquote className="mt-10">
-          <p className={`display text-[clamp(1.7rem,3.6vw,2.75rem)] leading-[1.3] text-balance italic ${light ? "text-charcoal" : "text-ivory"}`}>
+          <p className={`display text-[clamp(1.7rem,3.6vw,2.75rem)] leading-[1.3] text-balance italic ${light ? "text-dark-text" : "text-ivory"}`}>
             “{text}”
           </p>
         </blockquote>

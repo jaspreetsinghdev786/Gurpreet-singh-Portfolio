@@ -54,7 +54,7 @@ export const SectionHeading = ({
       )}
       <h2
         className={`display mt-5 max-w-[18ch] text-[clamp(2.6rem,4.4vw,3.5rem)] leading-[1.08] text-balance ${
-          light ? "text-charcoal" : "text-ivory"
+          light ? "text-dark-text" : "text-ivory"
         } ${centered ? "mx-auto" : ""}`}
       >
         {title}
@@ -62,7 +62,7 @@ export const SectionHeading = ({
       {intro && (
         <p
           className={`mt-7 max-w-[52ch] text-[17px] leading-[1.75] ${
-            light ? "text-charcoal/65" : "text-ivory/60"
+            light ? "text-cream-muted" : "text-muted"
           } ${centered ? "mx-auto" : ""}`}
         >
           {intro}

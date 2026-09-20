@@ -87,7 +87,7 @@ export const About = () => (
         <p className="display mt-8 text-[clamp(1.8rem,3.8vw,2.9rem)] leading-[1.28] text-balance text-ivory">
           {chapters.observation.statement}
         </p>
-        <p className="mx-auto mt-8 max-w-[52ch] text-[17px] leading-[1.75] text-ivory/60">{chapters.observation.body}</p>
+        <p className="mx-auto mt-8 max-w-[52ch] text-[17px] leading-[1.75] text-muted">{chapters.observation.body}</p>
       </Reveal>
     </section>
 
@@ -99,19 +99,19 @@ export const About = () => (
           id="12-lion"
           width={700}
           sizes="20vw"
-          className="absolute top-8 -left-10 w-[18%] opacity-[0.09] grayscale [mask-image:radial-gradient(ellipse_at_60%_45%,black_5%,transparent_70%)]"
+          className="absolute top-8 -left-10 w-[18%] opacity-[0.04] grayscale"
         />
         <Photo
           id="places"
           width={700}
           sizes="20vw"
-          className="absolute bottom-24 -left-6 w-[16%] opacity-[0.10] grayscale [mask-image:radial-gradient(ellipse_at_55%_50%,black_5%,transparent_68%)]"
+          className="absolute bottom-24 -left-6 w-[16%] opacity-[0.04] grayscale"
         />
         <Photo
           id="tools"
           width={700}
           sizes="18vw"
-          className="absolute right-0 bottom-10 w-[14%] opacity-[0.12] grayscale [mask-image:radial-gradient(ellipse_at_45%_50%,black_5%,transparent_68%)]"
+          className="absolute right-0 bottom-10 w-[14%] opacity-[0.04] grayscale"
         />
       </div>
 
@@ -120,7 +120,7 @@ export const About = () => (
           <Reveal>
             <div className="flex items-center gap-5">
               <span className="h-px w-10 bg-gold/60" aria-hidden="true" />
-              <ul className="flex flex-wrap items-center gap-x-3 text-[10.5px] tracking-[0.28em] text-charcoal/50 uppercase">
+              <ul className="flex flex-wrap items-center gap-x-3 text-[10.5px] tracking-[0.28em] text-dark-text/50 uppercase">
                 {chapters.punjab.words.map((w, i) => (
                   <li key={w} className="flex items-center gap-3">
                     {i > 0 && (
@@ -134,14 +134,14 @@ export const About = () => (
               </ul>
             </div>
 
-            <h2 className="display mt-7 max-w-[13ch] text-[clamp(2.3rem,4.2vw,3.7rem)] leading-[1.06] text-charcoal">
+            <h2 className="display mt-7 max-w-[13ch] text-[clamp(2.3rem,4.2vw,3.7rem)] leading-[1.06] text-dark-text">
               Punjab, memory and <span className="text-gold">history</span>
             </h2>
 
-            <p className="mt-6 text-[11px] tracking-[0.3em] text-charcoal/45 uppercase">{chapters.punjab.label}</p>
+            <p className="mt-6 text-[11px] tracking-[0.3em] text-dark-text/45 uppercase">{chapters.punjab.label}</p>
           </Reveal>
 
-          <Reveal delay={0.08} className="space-y-6 text-[15.5px] leading-[1.8] text-charcoal/70 lg:pt-2">
+          <Reveal delay={0.08} className="space-y-6 text-[15.5px] leading-[1.8] text-dark-text/70 lg:pt-2">
             {chapters.punjab.paragraphs.map((p) => (
               <p key={p.slice(0, 24)} className="max-w-[62ch]">
                 {p}
@@ -159,19 +159,19 @@ export const About = () => (
           </Reveal>
 
           <div aria-hidden="true" className="hidden w-32 shrink-0 pt-4 lg:block">
-            <p className="font-script -rotate-6 text-[21px] leading-[1.4] text-charcoal/40">
+            <p className="font-script -rotate-6 text-[21px] leading-[1.4] text-dark-text/40">
               {chapters.punjab.note.map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>
               ))}
             </p>
-            <ul className="mt-12 space-y-1.5 text-[9.5px] tracking-[0.26em] text-charcoal/40 uppercase">
+            <ul className="mt-12 space-y-1.5 text-[9.5px] tracking-[0.26em] text-dark-text/40 uppercase">
               {chapters.punjab.rail.map((w) => (
                 <li key={w}>{w}</li>
               ))}
             </ul>
-            <div className="mt-5 h-14 w-px bg-gradient-to-b from-gold/40 to-transparent" />
+            <div className="mt-5 h-14 w-px bg-gold/40" />
           </div>
         </div>
       </div>
@@ -197,8 +197,8 @@ export const About = () => (
         {chapters.beyond.interests.map((it, i) => (
           <li key={it.title}>
             <Reveal delay={(i % 3) * 0.05} className="border-t border-charcoal/12 py-6">
-              <h3 className="display text-[1.35rem] text-charcoal">{it.title}</h3>
-              <p className="mt-1.5 text-[14.5px] text-charcoal/55">{it.note}</p>
+              <h3 className="display text-[1.35rem] text-dark-text">{it.title}</h3>
+              <p className="mt-1.5 text-[14.5px] text-cream-muted">{it.note}</p>
             </Reveal>
           </li>
         ))}
@@ -241,7 +241,7 @@ export const About = () => (
       <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <div>
           <SectionTitle title="Professional summary" />
-          <p className="mt-8 text-[15px] leading-relaxed text-ivory/55">{profile.professionalName}</p>
+          <p className="mt-8 text-[15px] leading-relaxed text-muted">{profile.professionalName}</p>
           <p className="mt-1 text-[13px] tracking-[0.12em] text-ivory/45 uppercase">{profile.roles.join(" • ")}</p>
           <Link to="/contact" className="group mt-10 inline-flex items-center gap-3 text-[12px] tracking-[0.18em] text-gold-light uppercase transition-colors hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
             Enquire

@@ -13,7 +13,7 @@ export const EnquiryTypeSelector = ({ options, value, onChange, tone = "dark", e
 
   return (
     <fieldset>
-      <legend className={`display text-[clamp(1.6rem,3vw,2.2rem)] ${light ? "text-charcoal" : "text-ivory"}`}>Let’s talk about</legend>
+      <legend className={`display text-[clamp(1.6rem,3vw,2.2rem)] ${light ? "text-dark-text" : "text-ivory"}`}>Let’s talk about</legend>
       <ul className="mt-8 flex flex-wrap gap-3" role="list">
         {options.map((opt, i) => {
           const on = value.includes(opt)
@@ -31,9 +31,9 @@ export const EnquiryTypeSelector = ({ options, value, onChange, tone = "dark", e
                 htmlFor={id}
                 className={`inline-flex cursor-pointer items-center gap-2 border px-4 py-2.5 text-[13px] tracking-[0.06em] transition-colors select-none peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-gold-light ${
                   on
-                    ? "border-gold bg-gold text-charcoal"
+                    ? "border-gold bg-gold text-dark-text"
                     : light
-                      ? "border-charcoal/25 text-charcoal/75 hover:border-gold hover:text-charcoal"
+                      ? "border-charcoal/25 text-dark-text/75 hover:border-gold hover:text-dark-text"
                       : "border-ivory/25 text-ivory/70 hover:border-gold-light hover:text-ivory"
                 }`}
               >

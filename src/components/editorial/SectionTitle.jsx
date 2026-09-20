@@ -12,13 +12,13 @@ export const SectionTitle = ({ title, intro, tone = "dark", align = "left", as: 
       <div className={`h-px w-16 rule-gold ${centered ? "mx-auto" : ""}`} aria-hidden="true" />
       <Tag
         className={`display mt-6 max-w-[18ch] text-[clamp(2.2rem,4vw,3.25rem)] leading-[1.08] text-balance ${
-          light ? "text-charcoal" : "text-ivory"
+          light ? "text-dark-text" : "text-ivory"
         } ${centered ? "mx-auto" : ""}`}
       >
         {title}
       </Tag>
       {intro && (
-        <p className={`mt-6 max-w-[52ch] text-[17px] leading-[1.75] ${light ? "text-charcoal/65" : "text-ivory/60"} ${centered ? "mx-auto" : ""}`}>
+        <p className={`mt-6 max-w-[52ch] text-[17px] leading-[1.75] ${light ? "text-cream-muted" : "text-muted"} ${centered ? "mx-auto" : ""}`}>
           {intro}
         </p>
       )}

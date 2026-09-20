@@ -15,7 +15,7 @@ const List = ({ heading, items, tone = "dark" }) => {
       <h3 className={`text-[12px] tracking-[0.24em] uppercase ${light ? "text-gold" : "text-gold-light"}`}>{heading}</h3>
       <ul className="mt-6 space-y-3">
         {items.map((it) => (
-          <li key={it} className={`text-[16px] leading-snug ${light ? "text-charcoal/80" : "text-ivory/80"}`}>{it}</li>
+          <li key={it} className={`text-[16px] leading-snug ${light ? "text-dark-text/80" : "text-ivory/80"}`}>{it}</li>
         ))}
       </ul>
     </div>
@@ -62,13 +62,13 @@ export const Achievements = () => (
               {leadership.roles.map((r) => (
                 <li key={r.role + r.org} className="border-t border-charcoal/12 pt-6">
                   <Reveal>
-                    <h3 className="display text-[1.4rem] text-charcoal">{r.role}</h3>
-                    <p className="mt-1.5 text-[15px] text-charcoal/60">{r.org}</p>
+                    <h3 className="display text-[1.4rem] text-dark-text">{r.role}</h3>
+                    <p className="mt-1.5 text-[15px] text-cream-muted">{r.org}</p>
                   </Reveal>
                 </li>
               ))}
             </ul>
-            <Reveal className="mt-10 max-w-[52ch] text-[15px] leading-relaxed text-charcoal/60">{leadership.note}</Reveal>
+            <Reveal className="mt-10 max-w-[52ch] text-[15px] leading-relaxed text-cream-muted">{leadership.note}</Reveal>
           </div>
           <div>
             <SectionTitle tone="light" title="Collections" />
@@ -76,7 +76,7 @@ export const Achievements = () => (
               <Reveal><List heading="Public collections" items={collections.public} tone="light" /></Reveal>
               <Reveal delay={0.06}><List heading="International collections" items={collections.international} tone="light" /></Reveal>
             </div>
-            <Reveal className="mt-12 max-w-[52ch] text-[15px] leading-relaxed text-charcoal/60">{collections.privateNote}</Reveal>
+            <Reveal className="mt-12 max-w-[52ch] text-[15px] leading-relaxed text-cream-muted">{collections.privateNote}</Reveal>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export const Stats = () => (
       {stats.map(({ value, label }, i) => (
         <Reveal key={label} delay={i * 0.06} className="px-2 md:px-8">
           <dd className="display text-[2.6rem] leading-none text-gold-light md:text-[3rem]">{value}</dd>
-          <dt className="mt-3 text-[15px] leading-snug text-ivory/60">{label}</dt>
+          <dt className="mt-3 text-[15px] leading-snug text-muted">{label}</dt>
         </Reveal>
       ))}
     </dl>

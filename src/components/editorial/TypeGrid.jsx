@@ -13,7 +13,7 @@ export const TypeGrid = ({ items, tone = "light", columns = 3 }) => {
       {items.map((t, i) => (
         <li key={t}>
           <Reveal delay={(i % columns) * 0.04} className={`border-t py-5 ${light ? "border-charcoal/12" : "border-ivory/12"}`}>
-            <span className={`display text-[1.3rem] leading-snug ${light ? "text-charcoal" : "text-ivory"}`}>{t}</span>
+            <span className={`display text-[1.3rem] leading-snug ${light ? "text-dark-text" : "text-ivory"}`}>{t}</span>
           </Reveal>
         </li>
       ))}

@@ -12,7 +12,7 @@ export const Specialisation = () => (
     <div className="mx-auto max-w-6xl px-6 pb-16 md:pb-20 lg:px-8">
       <Reveal>
         <div className="h-px w-16 rule-gold" aria-hidden="true" />
-        <h2 className="display mt-6 max-w-[14ch] text-[clamp(2.1rem,4.6vw,3.6rem)] leading-[1.08] text-charcoal">
+        <h2 className="display mt-6 max-w-[14ch] text-[clamp(2.1rem,4.6vw,3.6rem)] leading-[1.08] text-dark-text">
           What I work in
         </h2>
       </Reveal>
@@ -33,8 +33,8 @@ export const Specialisation = () => (
                   className="mt-2 shrink-0 text-gold transition-transform duration-300 group-hover:-translate-y-0.5"
                 />
                 <div>
-                  <h3 className="display text-2xl text-charcoal md:text-[1.75rem]">{label}</h3>
-                  <p className="mt-2 max-w-[36ch] text-sm leading-relaxed text-charcoal/55">
+                  <h3 className="display text-2xl text-dark-text md:text-[1.75rem]">{label}</h3>
+                  <p className="mt-2 max-w-[36ch] text-sm leading-relaxed text-cream-muted">
                     {desc}
                   </p>
                 </div>

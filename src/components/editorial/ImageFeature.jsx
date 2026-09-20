@@ -14,7 +14,7 @@ export const ImageFeature = ({ photo, caption, aspect = "aspect-[16/9] md:aspect
       <Reveal>
         <figcaption
           className={`mt-4 text-[14px] ${bleed ? "mx-auto max-w-6xl px-6 lg:px-8" : ""} ${
-            tone === "light" ? "text-charcoal/50" : "text-ivory/45"
+            tone === "light" ? "text-cream-muted" : "text-muted"
           }`}
         >
           {caption}

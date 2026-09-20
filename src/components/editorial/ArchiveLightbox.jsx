@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { CaretLeft, CaretRight, X } from "@phosphor-icons/react"
 import { Photo } from "../ui/photo"
+import { useLenis } from "lenis/react"
 
 /**
  * The viewer.
@@ -16,8 +17,10 @@ export const ArchiveLightbox = ({ items, index, onClose, onStep }) => {
   const open = index !== null && index >= 0 && index < items.length
   const item = open ? items[index] : null
   const closeRef = useRef(null)
+  const dialogRef = useRef(null)
   const returnTo = useRef(null)
   const reduce = useReducedMotion()
+  const lenis = useLenis()
 
   const step = useCallback((delta) => onStep(delta), [onStep])
 
@@ -29,32 +32,45 @@ export const ArchiveLightbox = ({ items, index, onClose, onStep }) => {
     returnTo.current = document.activeElement
     const { body } = document
     const previous = body.style.overflow
+    const previousPadding = body.style.paddingRight
+    const wasStopped = lenis?.isStopped
     const gap = window.innerWidth - document.documentElement.clientWidth
     body.style.overflow = "hidden"
+    lenis?.stop()
     if (gap > 0) body.style.paddingRight = `${gap}px`
 
     const onKey = (e) => {
+      if (["Escape", "ArrowRight", "ArrowLeft"].includes(e.key)) e.preventDefault()
       if (e.key === "Escape") onClose()
       else if (e.key === "ArrowRight") step(1)
       else if (e.key === "ArrowLeft") step(-1)
+      else if (e.key === "Tab") {
+        const controls = dialogRef.current?.querySelectorAll("button")
+        if (!controls?.length) return
+        const first = controls[0], last = controls[controls.length - 1]
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+      }
     }
     document.addEventListener("keydown", onKey)
 
-    const id = requestAnimationFrame(() => closeRef.current?.focus())
+    const id = requestAnimationFrame(() => closeRef.current?.focus({ preventScroll: true }))
 
     return () => {
       document.removeEventListener("keydown", onKey)
       cancelAnimationFrame(id)
       body.style.overflow = previous
-      body.style.paddingRight = ""
-      if (returnTo.current instanceof HTMLElement) returnTo.current.focus()
+      body.style.paddingRight = previousPadding
+      if (!wasStopped) lenis?.start()
+      if (returnTo.current instanceof HTMLElement) returnTo.current.focus({ preventScroll: true })
     }
-  }, [open, onClose, step])
+  }, [open, onClose, step, lenis])
 
   return (
     <AnimatePresence>
       {open && (
         <motion.div
+          ref={dialogRef}
           className="ah-lb"
           role="dialog"
           aria-modal="true"

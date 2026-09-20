@@ -19,23 +19,23 @@ export const Exhibitions = () => (
       </div>
     </section>
 
-    <section className="bg-charcoal py-8">
-      <ImageFeature photo={{ id: 2, alt: "Artists gathered before a wall of paintings at a gallery opening" }} caption="An opening. The exhibition record is also a record of the people met along the way." />
+    <section className="bg-ivory-deep py-8">
+      <ImageFeature photo={{ id: 2, alt: "Artists gathered before a wall of paintings at a gallery opening" }} caption="An opening. The exhibition record is also a record of the people met along the way." tone="light" />
     </section>
 
-    <section className="bg-charcoal">
+    <section className="bg-ivory">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32 lg:px-8">
-        <SectionTitle title="Selected group exhibitions" intro={groupExhibitions.intro} />
+        <SectionTitle tone="light" title="Selected group exhibitions" intro={groupExhibitions.intro} />
         <ul className="mt-14 grid gap-x-12 sm:grid-cols-2">
           {groupExhibitions.venues.map((v, i) => (
             <li key={v}>
-              <Reveal delay={(i % 2) * 0.05} className="border-t border-ivory/12 py-5">
-                <span className="display text-[1.25rem] leading-snug text-ivory">{v}</span>
+              <Reveal delay={(i % 2) * 0.05} className="border-t border-charcoal/12 py-5">
+                <span className="display text-[1.25rem] leading-snug text-dark-text">{v}</span>
               </Reveal>
             </li>
           ))}
         </ul>
-        <Reveal className="mt-14 max-w-[60ch] text-[15px] leading-relaxed text-ivory/50">{groupExhibitions.note}</Reveal>
+        <Reveal className="mt-14 max-w-[60ch] text-[15px] leading-relaxed text-cream-muted">{groupExhibitions.note}</Reveal>
       </div>
     </section>
   </>

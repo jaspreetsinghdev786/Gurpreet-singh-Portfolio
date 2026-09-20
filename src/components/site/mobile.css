@@ -19,7 +19,7 @@
   .depth-site .studio-signature span { font-size: 8px; padding-left: 14px; }
   .depth-site .studio-gallery { height: clamp(325px, 92vw, 415px); margin: 0; }
   .depth-site .gallery-scene { inset: 32px 0 95px; touch-action: pan-y; }
-  .depth-site .gallery-frame { width: 56%; left: 22%; padding: 7px; box-shadow: 5px 6px 0 #171811, 0 16px 30px #0007; }
+  .depth-site .gallery-frame { width: 56%; left: 22%; padding: 7px; box-shadow: 5px 6px 0 #3b4866, 0 16px 30px #3b486680; }
   .depth-site .gallery-mat { padding: 8px; }
   .depth-site .gallery-frame-label { font-size: 6px; letter-spacing: .1em; }
   .depth-site .gallery-coordinate { font-size: 7px; letter-spacing: .11em; }
@@ -43,7 +43,7 @@
   .depth-site .depth-type-grid { gap: 12px; }
   .depth-site .depth-type-grid > li { padding-inline: 16px; }
   .depth-site .scroll-depth { perspective: none; }
-  .depth-site .depth-surface { box-shadow: 0 12px 24px -18px #0009; }
+  .depth-site .depth-surface { box-shadow: 0 12px 24px -18px #3b486699; }
   .depth-site .depth-toggle { position: static; margin: 12px auto 0; min-height: 48px; font-size: 12px; backdrop-filter: none; }
   .depth-site .grain { display: none; }
   .depth-site input, .depth-site textarea, .depth-site select { font-size: 16px; scroll-margin-block: 90px; }

@@ -7,9 +7,9 @@ import { featured, storiesSection } from "../../content/site"
 const s = storiesSection
 
 /** Photographs in this section are printed: a warm paper mat, then the image. */
-const Print = ({ photo, sizes, width = 700, ratio = "aspect-[4/3]", pad = "p-2.5", delay = 0 }) => (
+const Print = ({ photo, sizes, width = 700, ratio = "aspect-[4/3]", pad = "p-2.5", delay = 0, variant = "curtain" }) => (
   <div className={`bg-ivory-deep ${pad}`}>
-    <RevealImage delay={delay} seed={photo.id} className={`${ratio} w-full`} curtain="bg-ivory-deep">
+    <RevealImage variant={variant} delay={delay} seed={photo.id} className={`${ratio} w-full`} curtain="bg-ivory-deep">
       <Photo id={photo.id} alt={photo.alt} width={width} sizes={sizes} className="h-full w-full object-cover" />
     </RevealImage>
   </div>
@@ -29,19 +29,19 @@ const Print = ({ photo, sizes, width = 700, ratio = "aspect-[4/3]", pad = "p-2.5
  * the note, the vertical rail — appears from `lg` up, where there is room.
  */
 export const FeaturedWork = () => (
-  <section id="work" className="relative overflow-hidden border-b border-gold/15 bg-charcoal">
+  <section id="work" className="relative overflow-hidden border-b border-gold/15 bg-ivory">
     {/* Band A — the statement, and the portrait as a print */}
     <div className="mx-auto max-w-[84rem] px-6 pt-24 md:pt-32 lg:px-8 2xl:max-w-[100rem] 2xl:px-16">
       <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.02fr)] lg:gap-14">
         <div>
-          <Reveal>
+          <Reveal variant="clip">
             <div className="flex items-center gap-5">
               <span className="text-[11px] tracking-[0.3em] text-gold">{s.index}</span>
               <span className="h-px w-14 bg-gold/50" aria-hidden="true" />
-              <span className="text-[11px] tracking-[0.32em] text-ivory/75 uppercase">{s.eyebrow}</span>
+              <span className="text-[11px] tracking-[0.32em] text-cream-muted uppercase">{s.eyebrow}</span>
             </div>
 
-            <h2 className="display mt-9 max-w-[12ch] text-[clamp(2.6rem,4.6vw,4.2rem)] leading-[1.04] text-ivory">
+            <h2 className="display mt-9 max-w-[12ch] text-[clamp(2.6rem,4.6vw,4.2rem)] leading-[1.04] text-dark-text">
               {s.heading.lead}{" "}
               <span className="text-gold-light">
                 {s.heading.accent}
@@ -51,7 +51,7 @@ export const FeaturedWork = () => (
           </Reveal>
 
           <Reveal delay={0.08}>
-            <p className="mt-9 max-w-[48ch] text-[17px] leading-[1.8] text-ivory/60">{featured.intro}</p>
+            <p className="mt-9 max-w-[48ch] text-[17px] leading-[1.8] text-muted">{featured.intro}</p>
           </Reveal>
 
           <Reveal delay={0.14} className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-6">
@@ -67,9 +67,9 @@ export const FeaturedWork = () => (
               />
             </Link>
 
-            <span className="hidden h-14 w-px bg-ivory/15 sm:block" aria-hidden="true" />
+            <span className="hidden h-14 w-px bg-charcoal/15 sm:block" aria-hidden="true" />
 
-            <ul className="flex flex-wrap items-center gap-x-3 text-[10.5px] tracking-[0.26em] text-ivory/45 uppercase">
+            <ul className="flex flex-wrap items-center gap-x-3 text-[10.5px] tracking-[0.26em] text-cream-muted uppercase">
               {s.words.map((w, i) => (
                 <li key={w} className="flex items-center gap-3">
                   {i > 0 && (
@@ -88,15 +88,15 @@ export const FeaturedWork = () => (
         <div className="relative">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-x-10 -inset-y-12 hidden bg-[radial-gradient(ellipse_at_60%_45%,rgba(192,143,60,0.10),transparent_70%)] lg:block"
+            className="pointer-events-none absolute -inset-x-10 -inset-y-12 hidden lg:block"
           />
 
           <div className="relative flex items-start gap-7">
-            <p className="font-script hidden w-[30%] shrink-0 rotate-[-5deg] pt-16 text-[27px] leading-[1.35] text-ivory/55 lg:block">
+            <p className="font-script hidden w-[30%] shrink-0 rotate-[-5deg] pt-16 text-[27px] leading-[1.35] text-muted lg:block">
               {s.note}
             </p>
 
-            <figure className="w-full rotate-[-1.4deg] bg-ivory-deep p-3 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)] sm:mx-auto sm:w-[78%] lg:mx-0 lg:w-auto lg:min-w-0 lg:flex-1">
+            <figure className="w-full rotate-[-1.4deg] bg-ivory-deep p-3 shadow-[0_14px_34px_-24px_rgba(42,40,31,0.34)] sm:mx-auto sm:w-[78%] lg:mx-0 lg:w-auto lg:min-w-0 lg:flex-1">
               <RevealImage className="aspect-[4/5] w-full" curtain="bg-ivory-deep">
                 <Photo
                   id={featured.lead.photo.id}
@@ -114,7 +114,7 @@ export const FeaturedWork = () => (
                   <li key={w}>{w}</li>
                 ))}
               </ul>
-              <div className="mt-6 ml-auto h-16 w-px bg-gradient-to-b from-gold/50 to-transparent" />
+              <div className="mt-6 ml-auto h-16 w-px bg-gold/50" />
             </div>
           </div>
         </div>
@@ -127,8 +127,8 @@ export const FeaturedWork = () => (
         {featured.categories.map((c, i) => (
           <li key={c.title} className="md:border-l md:border-gold/15 md:px-9 md:first:border-l-0">
             <figure>
-              <Print photo={c.photo} delay={i * 0.06} sizes="(max-width: 768px) 100vw, 380px" />
-              <figcaption className="font-script mt-4 text-[26px] leading-none text-ivory/55">{c.note}</figcaption>
+              <Print photo={c.photo} delay={i * 0.06} variant={["focus", "liquid", "slow-zoom"][i]} sizes="(max-width: 768px) 100vw, 380px" />
+              <figcaption className="font-script mt-4 text-[26px] leading-none text-muted">{c.note}</figcaption>
             </figure>
 
             <Reveal delay={i * 0.06 + 0.08} className="mt-7">
@@ -139,7 +139,7 @@ export const FeaturedWork = () => (
               <div className="mt-4 flex items-start gap-6">
                 <div className="min-w-0 flex-1">
                   <h3 className="display text-[1.7rem] leading-tight text-ivory">{c.title}</h3>
-                  <p className="mt-3 max-w-[32ch] text-[15.5px] leading-[1.7] text-ivory/60">{c.desc}</p>
+                  <p className="mt-3 max-w-[32ch] text-[15.5px] leading-[1.7] text-muted">{c.desc}</p>
                 </div>
                 <Link
                   to={c.to}
@@ -156,7 +156,7 @@ export const FeaturedWork = () => (
     </div>
 
     {/* Band C — the closing line */}
-    <div className="relative border-t border-gold/15 bg-charcoal-800">
+    <div className="relative border-t border-gold/15 bg-ivory-deep">
       <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.1fr)_minmax(0,0.85fr)]">
         <div className="relative h-56 lg:h-80">
           <Photo
@@ -169,13 +169,13 @@ export const FeaturedWork = () => (
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-charcoal-800/35 to-charcoal-800"
+            className="absolute inset-0 bg-charcoal-800/40"
           />
         </div>
 
         <Reveal>
           <figure className="px-6 py-4 lg:px-0">
-            <blockquote className="font-serif text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.5] text-ivory/90 italic">
+            <blockquote className="font-serif text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.5] text-dark-text italic">
               “{s.quote.line}”
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-4">
@@ -186,7 +186,7 @@ export const FeaturedWork = () => (
         </Reveal>
 
         <div className="px-6 pb-10 lg:px-0 lg:pr-10 lg:pb-0">
-          <div className="flex gap-1.5 border-y border-ivory/15 bg-charcoal/60 px-2 py-2">
+          <div className="flex gap-1.5 border-y border-charcoal/15 bg-ivory-deep px-2 py-2">
             {s.strip.map((frame) => (
               <div key={frame.id} className="aspect-[4/3] w-1/2 overflow-hidden">
                 <Photo

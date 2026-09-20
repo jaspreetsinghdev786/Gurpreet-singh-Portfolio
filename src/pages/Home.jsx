@@ -11,8 +11,10 @@ import { Manifesto } from "../components/home/Manifesto"
 import { Practice } from "../components/home/Practice"
 import { Record } from "../components/home/Record"
 import { Invitation } from "../components/home/Invitation"
+import { ImageCollections, ExhibitionCollection } from "../components/home/ImageCollections"
+import { StoryDisclosure } from "../components/home/StoryDisclosure"
 
-/** The approved home page. Its visual direction is the benchmark for every other page. */
+/** A clear primary narrative, with deeper archive chapters available on demand. */
 export const Home = () => (
   <div className="home-content">
     <Seo
@@ -20,16 +22,28 @@ export const Home = () => (
       path="/"
     />
     <Hero />
-    <SelectedPractice />
-    <ArchiveStrip />
-    <Stats />
+    <nav className="home-chapters" aria-label="Explore this page">
+      <a href="#about"><span>01</span> THE ARTIST</a>
+      <a href="#selected-practice"><span>02</span> SELECTED WORK</a>
+      <a href="#record"><span>03</span> THE JOURNEY</a>
+      <a href="#collections"><span>04</span> COLLECTIONS</a>
+    </nav>
     <Intro />
-    <FeaturedWork />
-    <Essay />
-    <ScrollJourney />
+    <SelectedPractice />
     <Manifesto />
-    <Practice />
+    <Stats />
     <Record />
+    <ImageCollections />
+    <section className="deeper-stories" aria-labelledby="deeper-stories-title">
+      <div className="editorial-container">
+        <p className="editorial-eyebrow">Further reading / From the personal archive</p>
+        <h2 id="deeper-stories-title">Every image has more to tell.</h2>
+        <StoryDisclosure number="01" title="People, places and their stories"><FeaturedWork /><Essay /></StoryDisclosure>
+        <StoryDisclosure number="02" title="Inside the practice"><ScrollJourney /><Practice /></StoryDisclosure>
+        <StoryDisclosure number="03" title="Exhibitions and recognition"><ExhibitionCollection /></StoryDisclosure>
+        <StoryDisclosure number="04" title="The memory strip"><ArchiveStrip /></StoryDisclosure>
+      </div>
+    </section>
     <Invitation />
   </div>
 )

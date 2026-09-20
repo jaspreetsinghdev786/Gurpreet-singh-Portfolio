@@ -24,7 +24,7 @@ const validate = (v) => {
 
 const Field = ({ id, label, optional, error, children, hint }) => (
   <div className="flex flex-col gap-2">
-    <label htmlFor={id} className="text-[12px] tracking-[0.18em] text-ivory/60 uppercase">
+    <label htmlFor={id} className="text-[12px] tracking-[0.18em] text-muted uppercase">
       {label} {optional && <span className="text-ivory/35 normal-case tracking-normal">(optional)</span>}
     </label>
     {children}
@@ -92,7 +92,7 @@ export const ContactForm = () => {
       <div role="status" aria-live="polite" className="border border-gold/40 p-10 text-center">
         <CheckCircle size={32} weight="fill" aria-hidden="true" className="mx-auto text-gold-light" />
         <h3 className="display mt-6 text-[1.8rem] text-ivory">Thank you. Your enquiry has been sent.</h3>
-        <p className="mx-auto mt-4 max-w-[44ch] text-[16px] leading-relaxed text-ivory/60">
+        <p className="mx-auto mt-4 max-w-[44ch] text-[16px] leading-relaxed text-muted">
           You will hear back by your preferred method. If the matter is time-sensitive, please say so in a follow-up.
         </p>
         <button type="button" onClick={() => setStatus("idle")} className="mt-8 text-[12px] tracking-[0.18em] text-gold-light uppercase hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
@@ -135,14 +135,14 @@ export const ContactForm = () => {
           </Field>
         </div>
         <fieldset className="md:col-span-2">
-          <legend className="text-[12px] tracking-[0.18em] text-ivory/60 uppercase">Preferred contact method</legend>
+          <legend className="text-[12px] tracking-[0.18em] text-muted uppercase">Preferred contact method</legend>
           <div className="mt-3 flex flex-wrap gap-3">
             {contactMethods.map((m) => {
               const rid = id(`pref-${m}`)
               return (
                 <div key={m}>
                   <input id={rid} type="radio" name="preferred" value={m} checked={values.preferred === m} onChange={set("preferred")} className="peer sr-only" />
-                  <label htmlFor={rid} className={`inline-block cursor-pointer border px-4 py-2.5 text-[13px] tracking-[0.06em] transition-colors select-none peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-gold-light ${values.preferred === m ? "border-gold bg-gold text-charcoal" : "border-ivory/25 text-ivory/70 hover:border-gold-light hover:text-ivory"}`}>
+                  <label htmlFor={rid} className={`inline-block cursor-pointer border px-4 py-2.5 text-[13px] tracking-[0.06em] transition-colors select-none peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-gold-light ${values.preferred === m ? "border-gold bg-gold text-dark-text" : "border-ivory/25 text-ivory/70 hover:border-gold-light hover:text-ivory"}`}>
                     {m}
                   </label>
                 </div>
@@ -156,7 +156,7 @@ export const ContactForm = () => {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="group inline-flex items-center gap-3 bg-gold px-9 py-4 text-[12px] font-medium tracking-[0.16em] text-charcoal uppercase transition-transform hover:-translate-y-px active:scale-[0.98] disabled:cursor-progress disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
+          className="group inline-flex items-center gap-3 bg-gold px-9 py-4 text-[12px] font-medium tracking-[0.16em] text-dark-text uppercase transition-transform hover:-translate-y-px active:scale-[0.98] disabled:cursor-progress disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
         >
           {status === "sending" ? "Sending…" : "Send enquiry"}
           {status !== "sending" && <ArrowRight size={14} weight="bold" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1" />}

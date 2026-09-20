@@ -14,7 +14,7 @@ export const About = () => (
       <div>
         <SectionHeading title={about.heading} />
 
-        <Reveal delay={0.08} className="mt-10 space-y-6 text-[17px] leading-[1.8] text-ivory/65">
+        <Reveal delay={0.08} className="mt-10 space-y-6 text-[17px] leading-[1.8] text-muted">
           {about.paragraphs.map((p) => (
             <p key={p.slice(0, 24)} className="max-w-[54ch]">
               {p}

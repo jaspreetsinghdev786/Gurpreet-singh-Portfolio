@@ -72,7 +72,7 @@ export const Contact = () => {
                   <MapPin size={18} aria-hidden="true" className="mt-1 shrink-0 text-gold" />
                   <div>
                     <h2 className="text-[15px] leading-tight text-ivory">{location.heading}</h2>
-                    <p className="mt-1.5 text-[14px] text-ivory/55">
+                    <p className="mt-1.5 text-[14px] text-muted">
                       {location.city}, {location.region}
                     </p>
                     <p className="mt-2 text-[13px] text-ivory/40">{location.note}</p>
@@ -97,7 +97,7 @@ export const Contact = () => {
 
               <Reveal delay={0.12} className="border-t border-gold/15 pt-10">
                 <h2 className="display text-[1.25rem] leading-tight text-gold">{contactAside.socialHeading}</h2>
-                <p className="mt-2 text-[14px] text-ivory/55">{contactAside.socialBody}</p>
+                <p className="mt-2 text-[14px] text-muted">{contactAside.socialBody}</p>
                 {hasSocials ? (
                   <SocialLinks className="mt-6" />
                 ) : (
@@ -125,19 +125,19 @@ export const Contact = () => {
             id={institutional.aside.id}
             width={1600}
             sizes="26vw"
-            className="h-full w-full object-cover opacity-[0.12] grayscale [mask-image:radial-gradient(ellipse_at_70%_50%,black_5%,transparent_65%)]"
+            className="h-full w-full object-cover opacity-[0.04] grayscale"
           />
         </div>
 
         <div className="relative mx-auto max-w-[84rem] px-6 py-20 md:py-24 lg:px-8 2xl:max-w-[100rem] 2xl:px-16">
-          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)_auto] lg:gap-16">
-            <figure className="w-full max-w-sm rotate-[-2deg] bg-white p-3 shadow-[0_24px_50px_-24px_rgba(30,26,20,0.45)] sm:mx-auto lg:mx-0">
-              <RevealImage className="aspect-[4/5] w-full" curtain="bg-ivory">
+          <div className="contact-institutional-layout grid items-center gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-16">
+            <figure className="w-full">
+              <RevealImage className="aspect-[4/3] w-full" curtain="bg-ivory">
                 <Photo
                   id={institutional.photo.id}
                   alt={institutional.photo.alt}
                   width={1600}
-                  sizes="(max-width: 1024px) 80vw, 380px"
+                  sizes="(max-width: 1024px) 90vw, 55vw"
                   className="h-full w-full object-cover"
                 />
               </RevealImage>
@@ -150,17 +150,17 @@ export const Contact = () => {
                   <span className="text-[11px] tracking-[0.3em] text-gold uppercase">{institutional.eyebrow}</span>
                 </div>
 
-                <h2 className="display mt-7 max-w-[18ch] text-[clamp(1.9rem,3.2vw,2.7rem)] leading-[1.12] text-charcoal">
+                <h2 className="display mt-7 max-w-[18ch] text-[clamp(1.9rem,3.2vw,2.7rem)] leading-[1.12] text-dark-text">
                   {institutional.heading}.
                 </h2>
 
-                <p className="mt-7 max-w-[56ch] text-[16px] leading-[1.8] text-charcoal/65">{institutional.body}</p>
+                <p className="mt-7 max-w-[56ch] text-[16px] leading-[1.8] text-cream-muted">{institutional.body}</p>
               </Reveal>
 
               <Reveal delay={0.1}>
                 <Link
                   to="/exhibitions"
-                  className="group mt-10 inline-flex items-center gap-8 border border-gold/50 px-8 py-[1.1rem] text-[11px] tracking-[0.26em] text-charcoal uppercase transition-colors duration-300 hover:border-gold hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                  className="group mt-10 inline-flex items-center gap-8 border border-gold/50 px-8 py-[1.1rem] text-[11px] tracking-[0.26em] text-dark-text uppercase transition-colors duration-300 hover:border-gold hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
                 >
                   {institutional.cta}
                   <ArrowRight
@@ -174,7 +174,7 @@ export const Contact = () => {
 
             <p
               aria-hidden="true"
-              className="font-script hidden self-start text-[22px] leading-[1.35] text-charcoal/35 xl:block"
+              className="font-script hidden self-start text-[22px] leading-[1.35] text-dark-text/35 xl:block"
             >
               {institutional.note.map((line) => (
                 <span key={line} className="block">
@@ -195,7 +195,7 @@ export const Contact = () => {
             sizes="100vw"
             className="h-full w-full object-cover opacity-[0.22] grayscale"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal" />
+          <div className="absolute inset-0 bg-charcoal/78" />
         </div>
 
         <div className="relative mx-auto max-w-[84rem] px-6 py-24 md:py-28 lg:px-8 2xl:max-w-[100rem] 2xl:px-16">
@@ -211,7 +211,7 @@ export const Contact = () => {
             <button
               type="button"
               onClick={scrollToForm}
-              className="mt-11 inline-flex items-center gap-4 bg-gold px-9 py-4 text-[11.5px] font-medium tracking-[0.2em] text-charcoal uppercase transition-transform duration-200 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
+              className="mt-11 inline-flex items-center gap-4 bg-gold px-9 py-4 text-[11.5px] font-medium tracking-[0.2em] text-dark-text uppercase transition-transform duration-200 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
             >
               {closingCta.label}
               <ArrowRight size={14} aria-hidden="true" />
@@ -227,7 +227,7 @@ export const Contact = () => {
                 <li key={w}>{w}</li>
               ))}
             </ul>
-            <div className="mt-5 h-14 w-px bg-gradient-to-b from-gold/45 to-transparent" />
+            <div className="mt-5 h-14 w-px bg-gold/45" />
           </div>
         </div>
       </section>

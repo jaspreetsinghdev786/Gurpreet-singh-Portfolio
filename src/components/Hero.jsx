@@ -38,7 +38,7 @@ export const Hero = () => {
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(90deg, rgba(14,12,10,.94) 0%, rgba(14,12,10,.82) 30%, rgba(14,12,10,.3) 58%, rgba(14,12,10,0) 100%), linear-gradient(180deg, rgba(14,12,10,.5) 0%, rgba(14,12,10,0) 30%, rgba(14,12,10,.65) 100%)",
+            "rgba(59,72,102,0.68)",
         }}
       />
       <div
@@ -46,7 +46,7 @@ export const Hero = () => {
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(180deg, rgba(14,12,10,.82) 0%, rgba(14,12,10,.66) 45%, rgba(14,12,10,.9) 100%)",
+            "rgba(59,72,102,0.78)",
         }}
       />
 
@@ -74,7 +74,7 @@ export const Hero = () => {
           <Reveal delay={0.72} className="mt-11 flex flex-wrap gap-4">
             <a
               href="#work"
-              className="group inline-flex items-center gap-2.5 bg-gold px-8 py-4 text-[12px] font-medium tracking-[0.16em] text-charcoal uppercase transition-transform hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
+              className="group inline-flex items-center gap-2.5 bg-gold px-8 py-4 text-[12px] font-medium tracking-[0.16em] text-dark-text uppercase transition-transform hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
             >
               {cta.work}
               <ArrowRight size={14} weight="bold" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1" />

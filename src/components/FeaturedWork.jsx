@@ -38,7 +38,7 @@ export const FeaturedWork = () => (
           </RevealImage>
           <Reveal delay={i * 0.08 + 0.1}>
             <h3 className="display mt-7 text-[1.6rem] leading-tight text-ivory">{c.title}</h3>
-            <p className="mt-3 max-w-[38ch] text-[16px] leading-[1.7] text-ivory/60">{c.desc}</p>
+            <p className="mt-3 max-w-[38ch] text-[16px] leading-[1.7] text-muted">{c.desc}</p>
           </Reveal>
         </li>
       ))}

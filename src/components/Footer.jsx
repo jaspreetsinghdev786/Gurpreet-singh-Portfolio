@@ -57,7 +57,7 @@ export const Footer = () => {
                 <li key={href}>
                   <a
                     href={href}
-                    className={`text-[15px] text-ivory/60 transition-colors hover:text-ivory ${ring}`}
+                    className={`text-[15px] text-muted transition-colors hover:text-ivory ${ring}`}
                   >
                     {label}
                   </a>
@@ -68,7 +68,7 @@ export const Footer = () => {
 
           <div>
             <h2 className="text-[11px] tracking-[0.26em] text-ivory/40 uppercase">Stay in touch</h2>
-            <p className="mt-6 text-[15px] leading-relaxed text-ivory/60">
+            <p className="mt-6 text-[15px] leading-relaxed text-muted">
               Updates on new artworks, exhibitions and events.
             </p>
 

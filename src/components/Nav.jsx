@@ -54,8 +54,8 @@ export const Nav = () => {
     <header
       className={`sticky top-0 z-40 border-b transition-colors duration-500 ${
         scrolled || open
-          ? "border-gold/20 bg-charcoal/95 backdrop-blur-md"
-          : "border-transparent bg-gradient-to-b from-charcoal/70 to-transparent"
+          ? "border-gold/20 bg-charcoal"
+          : "border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-8 px-6 lg:px-8">
@@ -77,7 +77,7 @@ export const Nav = () => {
                 href={link.href}
                 aria-current={isActive ? "true" : undefined}
                 className={`relative py-1 text-[12px] tracking-[0.14em] whitespace-nowrap uppercase transition-colors ${ring} ${
-                  isActive ? "text-gold-light" : "text-ivory/55 hover:text-ivory"
+                  isActive ? "text-gold-light" : "text-muted hover:text-ivory"
                 }`}
               >
                 {link.label}
@@ -94,7 +94,7 @@ export const Nav = () => {
 
         <a
           href="#contact"
-          className={`hidden shrink-0 items-center gap-2 border border-gold px-4 py-2.5 text-[10.5px] font-medium tracking-[0.16em] whitespace-nowrap text-gold-light uppercase transition-colors hover:bg-gold hover:text-charcoal lg:inline-flex ${ring}`}
+          className={`hidden shrink-0 items-center gap-2 border border-gold px-4 py-2.5 text-[10.5px] font-medium tracking-[0.16em] whitespace-nowrap text-gold-light uppercase transition-colors hover:bg-gold hover:text-dark-text lg:inline-flex ${ring}`}
         >
           {cta.contact}
           <ArrowRight size={12} weight="bold" aria-hidden="true" />
@@ -134,7 +134,7 @@ export const Nav = () => {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-4 block bg-gold px-5 py-3.5 text-center text-[11px] font-medium tracking-[0.16em] text-charcoal uppercase"
+            className="mt-4 block bg-gold px-5 py-3.5 text-center text-[11px] font-medium tracking-[0.16em] text-dark-text uppercase"
           >
             {cta.contact}
           </a>

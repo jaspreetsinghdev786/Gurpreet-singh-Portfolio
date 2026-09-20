@@ -2,25 +2,18 @@ import { Link } from "react-router"
 import { ArrowRight } from "@phosphor-icons/react"
 import { RevealImage, Reveal } from "../ui/reveal"
 import { Photo } from "../ui/photo"
+import { TiltCard } from "../ui/TiltCard"
 
-/**
- * Categories with rhythm: the first spans two columns, the rest fall into a
- * three-column run. Captions sit under the frame. `linkBase` turns each into
- * a route; without it they are plain figures.
- */
-/**
- * `lead` makes the first item span two columns. Only use it when the count
- * fills the grid: 8 items (1 lead + 1, then 3, then 3) does; 6 does not.
- */
+/** Alternating lead/support pairs; captions and route links stay with the image. */
 export const CategoryGrid = ({ categories, linkBase, tone = "dark", counts, lead: withLead = true }) => {
   const light = tone === "light"
   return (
-    <ul className="depth-category-grid grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="depth-category-grid editorial-category-grid">
       {categories.map((c, i) => {
-        const lead = withLead && i === 0
+        const lead = withLead ? i % 4 === 0 || i % 4 === 3 : i % 2 === 0
         const body = (
           <>
-            <RevealImage delay={(i % 3) * 0.07} seed={i} className={lead ? "aspect-[16/9]" : "aspect-[4/5]"}>
+            <RevealImage delay={(i % 2) * 0.07} seed={i} className="category-image">
               <Photo
                 id={c.photo.id}
                 alt={c.photo.alt}
@@ -32,8 +25,8 @@ export const CategoryGrid = ({ categories, linkBase, tone = "dark", counts, lead
             <Reveal delay={(i % 3) * 0.07 + 0.1}>
               <div className="mt-6 flex items-start justify-between gap-4">
                 <div>
-                  <h3 className={`display text-[1.6rem] leading-tight ${light ? "text-charcoal" : "text-ivory"}`}>{c.title}</h3>
-                  <p className={`mt-3 max-w-[40ch] text-[15.5px] leading-[1.7] ${light ? "text-charcoal/60" : "text-ivory/60"}`}>{c.desc}</p>
+                  <h3 className={`display text-[1.6rem] leading-tight ${light ? "text-dark-text" : "text-ivory"}`}>{c.title}</h3>
+                  <p className={`mt-3 max-w-[40ch] text-[15.5px] leading-[1.7] ${light ? "text-cream-muted" : "text-muted"}`}>{c.desc}</p>
                   {counts && counts[c.slug] != null && (
                     <p className={`mt-3 font-mono text-[12px] ${light ? "text-gold" : "text-gold-light"}`}>{counts[c.slug]} works</p>
                   )}
@@ -42,7 +35,7 @@ export const CategoryGrid = ({ categories, linkBase, tone = "dark", counts, lead
                   <ArrowRight
                     size={18}
                     aria-hidden="true"
-                    className={`mt-2 shrink-0 transition-all duration-300 group-hover:translate-x-1 ${light ? "text-charcoal/30 group-hover:text-gold" : "text-ivory/30 group-hover:text-gold-light"}`}
+                    className={`mt-2 shrink-0 transition-all duration-300 group-hover:translate-x-1 ${light ? "text-dark-text/30 group-hover:text-gold" : "text-ivory/30 group-hover:text-gold-light"}`}
                   />
                 )}
               </div>
@@ -50,13 +43,13 @@ export const CategoryGrid = ({ categories, linkBase, tone = "dark", counts, lead
           </>
         )
         return (
-          <li key={c.slug} className={lead ? "sm:col-span-2" : ""}>
+          <li key={c.slug} className={lead ? "is-featured" : ""}>
             {linkBase ? (
               <Link to={`${linkBase}/${c.slug}`} className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
-                {body}
+                <TiltCard delay={(i % 3) * .08}>{body}</TiltCard>
               </Link>
             ) : (
-              <div className="group">{body}</div>
+              <div className="group"><TiltCard delay={(i % 3) * .08}>{body}</TiltCard></div>
             )}
           </li>
         )

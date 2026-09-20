@@ -24,7 +24,7 @@ export const WorkCarousel = ({ frames, label = "Works", tone = "light" }) => {
   }
   const control = `grid size-12 shrink-0 place-items-center rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold disabled:opacity-40 ${
     light
-      ? "border-charcoal/30 text-charcoal hover:border-gold hover:bg-gold/10"
+      ? "border-charcoal/30 text-dark-text hover:border-gold hover:bg-gold/10"
       : "border-ivory/30 text-ivory hover:border-gold-light hover:bg-gold/10"
   }`
 
@@ -33,12 +33,12 @@ export const WorkCarousel = ({ frames, label = "Works", tone = "light" }) => {
       tabIndex={0} onKeyDown={onKeyDown}>
       <figure className="overflow-hidden rounded-sm bg-charcoal">
         <div className="work-carousel-media relative isolate aspect-[4/3] w-full overflow-hidden sm:aspect-[16/9] lg:aspect-[2/1]">
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={false} mode="wait">
             <motion.div key={frame.id} className="absolute inset-0" aria-hidden="true"
               initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: reduce ? 0 : .35, ease: [0.16, 1, 0.3, 1] }}>
               <Photo id={frame.id} alt="" width={1600} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 100vw, 980px"
-                className="h-full w-full object-cover" />
+                className="h-full w-full object-contain" />
             </motion.div>
           </AnimatePresence>
           <span className="sr-only">{frame.alt}</span>
@@ -51,7 +51,7 @@ export const WorkCarousel = ({ frames, label = "Works", tone = "light" }) => {
         </figcaption>
       </figure>
       <div className="work-carousel-navigation mt-4 flex items-center justify-between gap-4">
-        <div className={`flex min-w-0 flex-1 items-center gap-3 text-[11px] tracking-[0.16em] ${light ? "text-charcoal/60" : "text-ivory/60"}`}>
+        <div className={`flex min-w-0 flex-1 items-center gap-3 text-[11px] tracking-[0.16em] ${light ? "text-cream-muted" : "text-muted"}`}>
           <span className={light ? "text-gold" : "text-gold-light"}>{pad(i + 1)}</span>
           <span aria-hidden="true" className={`h-px min-w-4 max-w-32 flex-1 ${light ? "bg-charcoal/20" : "bg-ivory/20"}`}>
             <span className="block h-px bg-gold transition-[width] duration-300" style={{ width: `${((i + 1) / count) * 100}%` }} />

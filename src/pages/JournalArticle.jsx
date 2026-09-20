@@ -22,7 +22,7 @@ export const JournalArticle = () => {
       <Seo title={a.title} description={a.excerpt} path={`/journal/${a.slug}`} image={`/gallery/opt/${a.cover.id}-1600.webp`} />
       <article className="bg-charcoal">
         <header className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 lg:px-8">
-          <Link to="/journal" className="inline-flex items-center gap-2 text-[12px] tracking-[0.18em] text-ivory/55 uppercase hover:text-ivory focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
+          <Link to="/journal" className="inline-flex items-center gap-2 text-[12px] tracking-[0.18em] text-muted uppercase hover:text-ivory focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
             <ArrowLeft size={13} weight="bold" aria-hidden="true" /> Journal
           </Link>
           <Reveal>
@@ -31,7 +31,7 @@ export const JournalArticle = () => {
               {cat && <span>{cat.label}</span>}
             </p>
             <h1 className="display mt-5 max-w-[20ch] text-[clamp(2.4rem,5.5vw,4.25rem)] leading-[1.05] text-balance text-ivory">{a.title}</h1>
-            <p className="mt-8 max-w-[56ch] text-[18px] leading-[1.7] text-ivory/65">{a.excerpt}</p>
+            <p className="mt-8 max-w-[56ch] text-[18px] leading-[1.7] text-muted">{a.excerpt}</p>
           </Reveal>
         </header>
         <div className="mt-14"><ImageFeature photo={a.cover} /></div>

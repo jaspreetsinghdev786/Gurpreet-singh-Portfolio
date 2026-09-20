@@ -13,7 +13,7 @@ export const Invitation = () => (
       <p className="mx-auto mt-7 max-w-[46ch] text-[17px] leading-[1.7] text-ivory/62">{contact.body}</p>
       <Link
         to="/contact"
-        className="group mt-12 inline-flex items-center gap-3 bg-gold px-9 py-4 text-[12px] font-medium tracking-[0.16em] text-charcoal uppercase transition-transform hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
+        className="group mt-12 inline-flex items-center gap-3 bg-gold px-9 py-4 text-[12px] font-medium tracking-[0.16em] text-dark-text uppercase transition-transform hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
       >
         {cta.contact}
         <ArrowRight size={14} weight="bold" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1" />

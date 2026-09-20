@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@import "@fontsource/jost/300.css";
-@import "@fontsource/jost/400.css";
-@import "@fontsource/jost/500.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
 @import "@fontsource/playfair-display/400.css";
 @import "@fontsource/playfair-display/500.css";
 @import "@fontsource/playfair-display/600.css";
@@ -12,24 +12,48 @@
 @import "@fontsource/jetbrains-mono/500.css";
 
 @theme {
-  --font-sans: "Jost", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   --font-script: "Great Vibes", cursive;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* One palette, one accent. Warm near-black ground (never pure #000), ivory
-     for type, and a single gold accent taken from the saffron in the hero
-     photograph. No second accent colour appears anywhere on the page. */
-  --color-charcoal: #0e0c0a;
-  --color-charcoal-800: #15120e;
-  --color-charcoal-700: #1e1a14;
-  --color-ivory: #f2ece1;
-  --color-ivory-deep: #e5dbc9;
-  --color-gold: #c08f3c;
-  --color-gold-light: #ddb877;
+  /* Navy, peach and warm paper. Existing aliases preserve page utilities. */
+  --color-charcoal: #3b4866;
+  --color-charcoal-800: #2a281f;
+  --color-charcoal-700: #2a281f;
+  --color-ivory: #f5efea;
+  --color-paper: #f5efea;
+  --color-ivory-deep: #e9ddd5;
+  --color-white: #f5efea;
+  --color-text-muted: #d9d2cd;
+  --color-muted: #d9d2cd;
+  --color-dark-text: #2a281f;
+  --color-cream-muted: #69636a;
+  --color-gold: #d7a69c;
+  --color-gold-light: #d7a69c;
+  --color-photo-peach: #d7a69c;
+  --color-photo-navy: #3b4866;
+  --color-photo-earth: #9d675c;
 }
 
 :root {
+  --navy: #3b4866;
+  --peach: #d7a69c;
+  --rose: #9d675c;
+  --paper: #f5efea;
+  --ink: #2a281f;
+  --olive-dark: #3b4866;
+  --forest: #2a281f;
+  --ivory: #f5efea;
+  --beige: #e9ddd5;
+  --gold: #d7a69c;
+  --white: #f5efea;
+  --text-muted: #d9d2cd;
+  --dark-text: #2a281f;
+  --cream-muted: #69636a;
+  --frame-peach: #d7a69c;
+  --frame-navy: #3b4866;
+  --frame-earth: #9d675c;
   color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -42,7 +66,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* The header is sticky and 5rem tall, so anchor targets would otherwise land
@@ -53,8 +77,14 @@ html {
 
 body {
   margin: 0;
+  font-family: var(--font-sans);
   background: var(--color-charcoal);
-  color: var(--color-ivory);
+  color: var(--color-white);
+}
+
+/* Ivory type and warm paper share a name in the existing utility vocabulary. */
+.bg-ivory {
+  background-color: var(--color-paper);
 }
 
 #root {
@@ -94,7 +124,7 @@ body {
 
 /* Hairline used to open a section instead of an eyebrow label. */
 .rule-gold {
-  background: linear-gradient(90deg, var(--color-gold), transparent);
+  background: var(--color-gold);
 }
 
 @keyframes filmstrip {
@@ -155,9 +185,7 @@ body {
 .ah-opener-scrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(0deg, var(--color-charcoal) 6%, --alpha(var(--color-charcoal) / 25%) 60%),
-    linear-gradient(90deg, --alpha(var(--color-charcoal) / 78%), --alpha(var(--color-charcoal) / 20%) 70%);
+  background: rgba(59,72,102, 0.56);
 }
 
 .ah-opener-type {
@@ -186,18 +214,9 @@ body {
   color: var(--color-ivory);
 }
 
-/* The second line carries the accent: gold at the left, warming out to ivory
-   by the full stop, so the title turns the corner into the page. */
+/* The second line carries the single champagne-gold accent. */
 .ah-title-accent {
-  background: linear-gradient(
-    98deg,
-    var(--color-gold) 0%,
-    var(--color-gold-light) 38%,
-    var(--color-ivory-deep) 88%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-gold);
 }
 
 .ah-opener-grid {
@@ -242,7 +261,7 @@ body {
   height: 1px;
   width: 3rem;
   margin-bottom: 1.1rem;
-  background: linear-gradient(90deg, var(--color-gold), transparent);
+  background: var(--color-gold);
 }
 
 @media (min-width: 900px) {
@@ -272,8 +291,7 @@ body {
   z-index: 20;
   border-top: 1px solid --alpha(var(--color-gold) / 18%);
   border-bottom: 1px solid --alpha(var(--color-ivory) / 12%);
-  background: --alpha(var(--color-charcoal) / 88%);
-  backdrop-filter: blur(14px);
+  background: var(--color-forest);
 }
 
 .ah-rail-scroll {
@@ -453,8 +471,7 @@ body {
   height: 2.3rem;
   border-radius: 9999px;
   border: 1px solid --alpha(var(--color-ivory) / 22%);
-  background: --alpha(var(--color-charcoal) / 62%);
-  backdrop-filter: blur(8px);
+  background: var(--color-forest);
   color: --alpha(var(--color-ivory) / 80%);
   opacity: 0.8;
   transition:
@@ -617,8 +634,7 @@ body {
   display: grid;
   place-items: center;
   padding: clamp(3.5rem, 8vh, 5.5rem) clamp(1rem, 5vw, 4.5rem);
-  background: --alpha(var(--color-charcoal) / 96%);
-  backdrop-filter: blur(10px);
+  background: rgba(59,72,102, 0.96);
 }
 
 .ah-lb-bar {
@@ -751,14 +767,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(90% 72% at 48% 48%, --alpha(var(--color-charcoal) / 78%), transparent 68%),
-    linear-gradient(
-      180deg,
-      --alpha(var(--color-charcoal) / 45%),
-      transparent 26%,
-      --alpha(var(--color-charcoal) / 55%)
-    );
+  background: rgba(59,72,102, 0.72);
 }
 
 .ah-quote-inner {
@@ -904,12 +913,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    90deg,
-    --alpha(var(--color-charcoal) / 93%),
-    --alpha(var(--color-charcoal) / 84%) 46%,
-    --alpha(var(--color-charcoal) / 77%)
-  );
+  background: rgba(59,72,102, 0.82);
 }
 
 .sf-inner {
@@ -970,7 +974,7 @@ body {
   width: 3.25rem;
   height: 1px;
   margin-top: clamp(1.75rem, 3vw, 2.75rem);
-  background: linear-gradient(90deg, var(--color-gold), transparent);
+  background: var(--color-gold);
 }
 
 .sf-motto {
@@ -1151,11 +1155,7 @@ body {
     object-position: 22% 50%;
   }
   .sf-scrim {
-    background: linear-gradient(
-      90deg,
-      --alpha(var(--color-charcoal) / 92%),
-      --alpha(var(--color-charcoal) / 84%)
-    );
+    background: rgba(59,72,102, 0.86);
   }
   .sf-script span + span {
     padding-left: 1.2em;
@@ -1172,18 +1172,9 @@ body {
   }
 }
 
-/* The bar of light that crosses a print in the "sheen" reveal: a soft gold
-   band, skewed, that the wrapper carries once across the photograph. */
+/* A soft paper-coloured plate sweeps over each print during the reveal. */
 .reveal-sheen {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    --alpha(var(--color-gold-light) / 55%) 35%,
-    --alpha(var(--color-ivory) / 85%) 50%,
-    --alpha(var(--color-gold-light) / 55%) 65%,
-    transparent
-  );
-  mix-blend-mode: screen;
+  background: var(--color-beige);
 }
 
 /* The home hero plate. Anchored so the artist's head and turban stay in frame

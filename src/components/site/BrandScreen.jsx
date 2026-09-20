@@ -1,9 +1,9 @@
 import "./brand-screens.css"
 
 export const BrandLogo = ({ className = "" }) => (
-  <img className={`brand-screen-logo ${className}`} src="/brand/logo.png"
-    alt="Gurpreet Singh — painter, art educator and researcher"
-    width={2125} height={706} decoding="async" fetchPriority="high" />
+  <div className={`brand-screen-logo brand-wordmark ${className}`}>
+    <span>Gurpreet Singh</span><small>ARTIST & EDUCATOR</small>
+  </div>
 )
 
 /** Shared by first-load and route-change screens; the line is indeterminate. */

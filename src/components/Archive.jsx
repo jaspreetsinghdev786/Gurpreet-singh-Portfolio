@@ -15,11 +15,11 @@ export const Archive = () => (
         <h2 id="archive-heading" className="display text-[clamp(1.75rem,3vw,2.4rem)] text-ivory">
           {archive.heading}
         </h2>
-        <p className="max-w-[46ch] text-[16px] leading-relaxed text-ivory/55">{archive.intro}</p>
+        <p className="max-w-[46ch] text-[16px] leading-relaxed text-muted">{archive.intro}</p>
       </div>
     </Reveal>
 
-    <div className="group relative mt-10 w-full overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)]">
+    <div className="group relative mt-10 w-full overflow-hidden">
       <ul className="flex w-max animate-[filmstrip_70s_linear_infinite] gap-6 pr-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
         {[0, 1].map((pass) =>
           archive.frames.map((f) => (

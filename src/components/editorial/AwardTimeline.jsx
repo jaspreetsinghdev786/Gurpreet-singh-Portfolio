@@ -28,8 +28,8 @@ export const AwardTimeline = ({ awards, tone = "light" }) => {
             {g.items.map((a) => (
               <li key={a.title + a.by}>
                 <Reveal delay={Math.min(i, 5) * 0.04 + 0.05}>
-                  <h3 className={`display text-[1.3rem] leading-snug ${light ? "text-charcoal" : "text-ivory"}`}>{a.title}</h3>
-                  <p className={`mt-1.5 max-w-[60ch] text-[15px] leading-relaxed ${light ? "text-charcoal/60" : "text-ivory/55"}`}>{a.by}</p>
+                  <h3 className={`display text-[1.3rem] leading-snug ${light ? "text-dark-text" : "text-ivory"}`}>{a.title}</h3>
+                  <p className={`mt-1.5 max-w-[60ch] text-[15px] leading-relaxed ${light ? "text-cream-muted" : "text-muted"}`}>{a.by}</p>
                 </Reveal>
               </li>
             ))}

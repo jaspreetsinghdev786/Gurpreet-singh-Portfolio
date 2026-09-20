@@ -1,0 +1,64 @@
+/* Image layout contract: bounded frames, complete photographs, captions in flow. */
+.editorial-site #main .image-frame {
+  display:block;
+  position:relative;
+  min-width:0;
+  min-height:0;
+  max-width:100%;
+  max-height:480px;
+  isolation:isolate;
+  background:color-mix(in srgb,var(--ink) 8%,var(--paper));
+}
+.editorial-site #main .image-frame__surface { position:absolute;inset:0;overflow:hidden; }
+.editorial-site #main .image-frame img {
+  display:block;width:100%;height:100%;max-width:100%;max-height:100%;
+  object-fit:contain;object-position:center;
+}
+.editorial-site #main a:hover .image-frame img { transform:none; }
+.editorial-site :is(.collection-print,.practice-card,.gallery-card-reveal,.tilt-card,figure) { min-width:0; }
+.editorial-site #main .editorial-hero-art__image { height:clamp(280px,32vw,440px);aspect-ratio:auto;background:var(--ink); }
+.editorial-site #main .editorial-story__image { height:clamp(300px,36vw,480px);aspect-ratio:auto; }
+.editorial-site #main .editorial-moment__image { height:clamp(300px,37vw,480px);background:var(--ink); }
+.editorial-site #main .practice-image { height:220px;aspect-ratio:auto; }
+.editorial-site #main .practice-card:first-child .practice-image { height:480px;aspect-ratio:auto; }
+.editorial-site #main .collection-print__image { height:210px;aspect-ratio:auto; }
+.editorial-site #main .collection-composition__lead .collection-print__image { height:480px;aspect-ratio:auto; }
+.editorial-site #main .category-image { height:340px;aspect-ratio:auto; }
+.editorial-site #main .editorial-category-grid>li.is-featured .category-image { height:440px;aspect-ratio:auto; }
+.editorial-site #main .editorial-work-grid .image-frame { height:380px;aspect-ratio:auto; }
+.editorial-site #main .editorial-work-grid>li:first-child .image-frame { height:460px; }
+.editorial-site .atelier-live-gallery { width:100%;max-width:480px;margin-inline:auto;padding:0; }
+.editorial-site .atelier-live-stage { padding:10px 10px 30px; }
+.editorial-site .atelier-live-gallery .atelier-portrait-reveal { height:clamp(300px,48svh,440px);max-height:none;aspect-ratio:auto;background:var(--ink); }
+.editorial-site .atelier-live-image img { display:block;width:100%;height:100%;object-fit:contain;object-position:center!important; }
+.editorial-site .atelier-portrait:hover img { transform:none; }
+.editorial-site .atelier-drift-main { animation:none; }
+.editorial-site .atelier-backplate { inset:10px 10px 30px;transform:translate(5px,5px); }
+.editorial-site .atelier-plate { position:static;transform:none;background:transparent;padding:14px 0 0; }
+.editorial-site .atelier-stage-note { bottom:0;right:10px; }
+.editorial-site .atelier-live-caption { margin-top:16px; }
+.editorial-site .work-carousel-media { height:clamp(260px,35vw,460px);aspect-ratio:auto; }
+/* Each timeline print occupies its own column even during scroll motion. */
+.editorial-site .scroll-journey { height:auto; }
+.editorial-site .journey-sticky { position:relative;height:auto;min-height:0;padding:80px 6%;gap:32px; }
+.editorial-site .journey-stage,.editorial-site .journey-still .journey-stage { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;width:min(100%,1080px);height:auto; }
+.editorial-site .journey-plate,.editorial-site .journey-still .journey-plate { position:relative;inset:auto;width:100%;max-width:none;min-width:0; }
+.editorial-site .journey-photo { display:block;height:280px;aspect-ratio:auto;object-fit:contain; }
+@media(max-width:1000px) {
+  .editorial-site #main .practice-card:first-child .practice-image,.editorial-site #main .collection-composition__lead .collection-print__image { height:400px; }
+  .editorial-site #main .practice-image,.editorial-site #main .collection-print__image { height:180px; }
+}
+@media(max-width:760px) {
+  .editorial-site #main .image-frame { max-height:360px; }
+  .editorial-site #main :is(.editorial-hero-art__image,.editorial-story__image,.editorial-moment__image,.practice-image,.category-image),
+  .editorial-site #main .practice-card:first-child .practice-image,
+  .editorial-site #main .editorial-category-grid>li.is-featured .category-image,
+  .editorial-site #main .editorial-work-grid .image-frame,
+  .editorial-site #main .editorial-work-grid>li:first-child .image-frame,
+  .editorial-site #main .collection-composition__lead .collection-print__image { height:clamp(240px,82vw,360px);aspect-ratio:auto; }
+  .editorial-site .collection-composition__support { grid-template-columns:1fr;gap:32px; }
+  .editorial-site #main .collection-print__image { height:clamp(220px,70vw,300px); }
+  .editorial-site .atelier-live-gallery .atelier-portrait-reveal { height:clamp(260px,85vw,360px); }
+  .editorial-site .journey-stage,.editorial-site .journey-still .journey-stage { grid-template-columns:1fr;max-width:360px; }
+  .editorial-site .journey-photo { height:300px; }
+}

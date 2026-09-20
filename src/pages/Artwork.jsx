@@ -32,9 +32,9 @@ export const Artwork = () => {
     <>
       <Seo title={work.title ?? cat.title} description={work.description ?? cat.desc} path={`/work/${category}/${slug}`} image={cover ? `/gallery/opt/${cover.id}-1600.webp` : undefined} />
 
-      <section className="bg-charcoal pt-24 md:pt-32">
+      <section className="bg-charcoal">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <Link to={`/work/${cat.slug}`} className="inline-flex items-center gap-2 text-[12px] tracking-[0.18em] text-ivory/55 uppercase hover:text-ivory focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
+          <Link to={`/work/${cat.slug}`} className="inline-flex items-center gap-2 text-[12px] tracking-[0.18em] text-muted uppercase hover:text-ivory focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
             <ArrowLeft size={13} weight="bold" aria-hidden="true" /> {cat.title}
           </Link>
           <h1 className="display mt-8 max-w-[20ch] text-[clamp(2.4rem,5.5vw,4.25rem)] leading-[1.05] text-ivory">
@@ -58,7 +58,7 @@ export const Artwork = () => {
               <Row label="Category" value={<Link to={`/work/${cat.slug}`} className="hover:text-gold-light">{cat.title}</Link>} />
             </dl>
           </Reveal>
-          <Reveal delay={0.08} className="space-y-6 text-[17px] leading-[1.8] text-ivory/65">
+          <Reveal delay={0.08} className="space-y-6 text-[17px] leading-[1.8] text-muted">
             <p>{work.description ?? <Gap>Description {PENDING.toLowerCase()}</Gap>}</p>
             {work.story && <p>{work.story}</p>}
           </Reveal>
@@ -81,7 +81,7 @@ export const Artwork = () => {
         {related.length > 0 && (
           <div className="mx-auto max-w-6xl border-t border-ivory/12 px-6 py-24 lg:px-8">
             <h2 className="display text-[2rem] text-ivory">Related works</h2>
-            <ul className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="editorial-work-grid mt-12">
               {related.map((w, i) => <ArtworkCard key={w.slug} work={w} index={i} />)}
             </ul>
           </div>

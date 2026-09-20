@@ -21,19 +21,19 @@ export const Timeline = ({ items, tone = "dark", dated = true }) => {
             />
             {dated && (
               <span className={`block font-mono text-[13px] ${light ? "text-gold" : "text-gold-light"}`}>
-                {item.when ?? <span className={light ? "text-charcoal/35" : "text-ivory/30"}>Undated</span>}
+                {item.when ?? <span className={light ? "text-dark-text/35" : "text-ivory/30"}>Undated</span>}
               </span>
             )}
           </Reveal>
           <Reveal delay={Math.min(i, 6) * 0.05 + 0.04} className={`pb-10 ${dated ? "pt-3 md:pt-0" : "-mt-1"}`}>
-            <h3 className={`display text-[1.35rem] leading-snug ${light ? "text-charcoal" : "text-ivory"}`}>{item.title}</h3>
+            <h3 className={`display text-[1.35rem] leading-snug ${light ? "text-dark-text" : "text-ivory"}`}>{item.title}</h3>
             {item.detail !== undefined && (
-              <p className={`mt-1.5 text-[15px] ${light ? "text-charcoal/60" : "text-ivory/55"}`}>
+              <p className={`mt-1.5 text-[15px] ${light ? "text-cream-muted" : "text-muted"}`}>
                 {item.detail ?? <Gap tone={tone}>Institution to be added</Gap>}
               </p>
             )}
             {item.body && (
-              <p className={`mt-3 max-w-[54ch] text-[15px] leading-[1.75] ${light ? "text-charcoal/65" : "text-ivory/60"}`}>{item.body}</p>
+              <p className={`mt-3 max-w-[54ch] text-[15px] leading-[1.75] ${light ? "text-cream-muted" : "text-muted"}`}>{item.body}</p>
             )}
           </Reveal>
         </li>

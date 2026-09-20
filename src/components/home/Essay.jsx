@@ -14,7 +14,7 @@ const m = memorySection
  */
 const Plate = ({ frame, height, sizes, delay = 0 }) => (
   <li>
-    <RevealImage delay={delay} seed={frame.photo.id} className={`aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-auto ${height}`}>
+    <RevealImage variant={["focus", "expand", "liquid", "slow-zoom"][Number(frame.n) - 1]} delay={delay} seed={frame.photo.id} className={`aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-auto ${height}`}>
       <Photo
         id={frame.photo.id}
         alt={frame.photo.alt}
@@ -29,7 +29,7 @@ const Plate = ({ frame, height, sizes, delay = 0 }) => (
 
       <div className="min-w-0 flex-1">
         <h3 className="display text-[1.4rem] leading-tight text-ivory">{frame.label}</h3>
-        <p className="mt-1.5 max-w-[40ch] text-[14.5px] leading-[1.6] text-ivory/60">{frame.desc}</p>
+        <p className="mt-1.5 max-w-[40ch] text-[14.5px] leading-[1.6] text-muted">{frame.desc}</p>
       </div>
 
       <Link
@@ -70,9 +70,9 @@ export const Essay = () => (
         width={1600}
         sizes="60vw"
         position="50% 28%"
-        className="h-full w-full object-cover opacity-[0.22] grayscale [mask-image:radial-gradient(ellipse_at_45%_45%,black_22%,transparent_78%)]"
+        className="h-full w-full object-cover opacity-[0.06] grayscale"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-transparent to-charcoal" />
+      <div className="absolute inset-0 bg-charcoal/80" />
     </div>
 
     <div className="relative mx-auto max-w-[84rem] px-6 pt-16 md:pt-20 lg:px-8 2xl:max-w-[100rem] 2xl:px-16">
@@ -86,14 +86,14 @@ export const Essay = () => (
           ))}
         </ul>
         <div>
-          <p className="text-[10px] leading-[2] tracking-[0.26em] text-ivory/55 uppercase">
+          <p className="text-[10px] leading-[2] tracking-[0.26em] text-muted uppercase">
             {m.caption.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
             ))}
           </p>
-          <div className="mt-4 h-12 w-px bg-gradient-to-b from-gold/50 to-transparent" />
+          <div className="mt-4 h-12 w-px bg-gold/50" />
         </div>
       </div>
 
@@ -116,7 +116,7 @@ export const Essay = () => (
               </span>
             </h2>
 
-            <p className="mt-6 max-w-[34ch] text-[15.5px] leading-[1.7] text-ivory/60">{essay.intro}</p>
+            <p className="mt-6 max-w-[34ch] text-[15.5px] leading-[1.7] text-muted">{essay.intro}</p>
           </Reveal>
 
           <Reveal delay={0.1}>
@@ -178,7 +178,7 @@ export const Essay = () => (
 
         <div className="flex items-center gap-8">
           <span className="hidden h-px w-40 bg-gold/25 lg:block xl:w-64" aria-hidden="true" />
-          <span className="text-[10px] tracking-[0.26em] text-ivory/55 uppercase">{m.closing.line}</span>
+          <span className="text-[10px] tracking-[0.26em] text-muted uppercase">{m.closing.line}</span>
         </div>
       </div>
     </div>

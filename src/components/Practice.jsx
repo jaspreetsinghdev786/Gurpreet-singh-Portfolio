@@ -10,7 +10,7 @@ export const Practice = () => (
     <div className="mx-auto max-w-6xl px-6 pb-24 md:pb-32 lg:px-8">
       <Reveal>
         <div className="h-px w-16 rule-gold" aria-hidden="true" />
-        <h2 className="display mt-6 text-[clamp(2.6rem,4.4vw,3.5rem)] leading-[1.08] text-charcoal">
+        <h2 className="display mt-6 text-[clamp(2.6rem,4.4vw,3.5rem)] leading-[1.08] text-dark-text">
           {practice.heading}
         </h2>
       </Reveal>
@@ -19,8 +19,8 @@ export const Practice = () => (
         {practice.items.map((item, i) => (
           <li key={item.title}>
             <Reveal delay={(i % 2) * 0.06} className="border-t border-charcoal/12 py-9">
-              <h3 className="display text-[1.75rem] leading-tight text-charcoal">{item.title}</h3>
-              <p className="mt-3 max-w-[44ch] text-[16px] leading-[1.7] text-charcoal/60">{item.desc}</p>
+              <h3 className="display text-[1.75rem] leading-tight text-dark-text">{item.title}</h3>
+              <p className="mt-3 max-w-[44ch] text-[16px] leading-[1.7] text-cream-muted">{item.desc}</p>
             </Reveal>
           </li>
         ))}

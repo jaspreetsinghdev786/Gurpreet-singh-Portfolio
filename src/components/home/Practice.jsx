@@ -19,8 +19,8 @@ export const Practice = () => (
       <Reveal>
         <div className="h-px w-14 bg-gold/60" aria-hidden="true" />
         <div className="mt-6 flex flex-wrap items-baseline gap-x-8 gap-y-3">
-          <h2 className="display text-[clamp(2.2rem,3.4vw,3rem)] leading-[1.08] text-charcoal">{practice.heading}</h2>
-          <p className="border-charcoal/15 text-[10.5px] leading-[1.9] tracking-[0.26em] text-charcoal/45 uppercase sm:border-l sm:pl-8">
+          <h2 className="display text-[clamp(2.2rem,3.4vw,3rem)] leading-[1.08] text-dark-text">{practice.heading}</h2>
+          <p className="border-charcoal/15 text-[10.5px] leading-[1.9] tracking-[0.26em] text-dark-text/45 uppercase sm:border-l sm:pl-8">
             {practice.subtitle.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -33,7 +33,7 @@ export const Practice = () => (
       <ol className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
         {practice.items.map((item, i) => (
           <li key={item.title}>
-            <RevealImage delay={(i % 3) * 0.06} seed={i} className="aspect-[4/3] w-full" curtain="bg-ivory">
+            <RevealImage variant={["focus", "expand", "slow-zoom", "sheen", "wipe", "turn"][i]} delay={(i % 3) * 0.06} seed={i} className="aspect-[4/3] w-full" curtain="bg-ivory">
               <Photo
                 id={item.photo.id}
                 alt={item.photo.alt}
@@ -45,16 +45,16 @@ export const Practice = () => (
 
             <Reveal delay={(i % 3) * 0.06 + 0.08} className="mt-5 border-t border-charcoal/15 pt-4">
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="display text-[1.3rem] leading-tight text-charcoal">{item.title}</h3>
+                <h3 className="display text-[1.3rem] leading-tight text-dark-text">{item.title}</h3>
                 <span className="text-[11px] tracking-[0.22em] text-gold">{item.n}</span>
               </div>
 
               <div className="mt-2 flex items-start justify-between gap-6">
-                <p className="max-w-[34ch] text-[14.5px] leading-[1.6] text-charcoal/60">{item.desc}</p>
+                <p className="max-w-[34ch] text-[14.5px] leading-[1.6] text-cream-muted">{item.desc}</p>
                 <Link
                   to={item.to}
                   aria-label={`See ${item.title}`}
-                  className="group shrink-0 pt-1 text-gold transition-colors hover:text-charcoal focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                  className="group shrink-0 pt-1 text-gold transition-colors hover:text-dark-text focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
                 >
                   <ArrowRight
                     size={16}

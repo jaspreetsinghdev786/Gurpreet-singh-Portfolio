@@ -3,6 +3,8 @@ import { ArrowRight, MapPin } from "@phosphor-icons/react"
 import { footer, nav, site } from "../../content/site"
 import { socials } from "../../content/contact"
 import { SocialLinks } from "../editorial/SocialLinks"
+import { Reveal } from "../ui/reveal"
+import { SignatureStroke } from "../ui/SignatureStroke"
 
 /**
  * The footer.
@@ -34,9 +36,9 @@ export const SiteFooter = () => {
       <div className="sf-scrim" aria-hidden="true" />
 
       <div className="sf-inner">
-        <div className="sf-cols">
+        <Reveal variant="lift" className="sf-cols">
           <div className="sf-brand">
-            <img src="/brand/logo.png" alt={site.name} className="sf-logo" />
+            <Link to="/" className="atelier-wordmark" aria-label={`${site.name}, home`}><span>Gurpreet Singh</span><small>ARTIST & EDUCATOR</small></Link>
             <p className="sf-tagline">{site.tagline}</p>
             <div className="sf-hair" aria-hidden="true" />
             <p className="sf-motto">{footer.motto}</p>
@@ -74,9 +76,10 @@ export const SiteFooter = () => {
             <p className="sf-script" aria-hidden="true">
               <span>{footer.script[0]}</span>
               <span>{footer.script[1]}</span>
+              <SignatureStroke className="sf-signature-stroke" />
             </p>
           </div>
-        </div>
+        </Reveal>
 
         <div className="sf-base">
           <p className="sf-notice">

@@ -38,7 +38,7 @@ export const Essay = () => (
             <Reveal delay={i * 0.06 + 0.1}>
               <figcaption className="mt-4 flex items-baseline gap-4">
                 <span className="font-mono text-[13px] text-gold">{f.n}</span>
-                <span className="text-[12px] tracking-[0.2em] text-ivory/60 uppercase">{f.label}</span>
+                <span className="text-[12px] tracking-[0.2em] text-muted uppercase">{f.label}</span>
               </figcaption>
             </Reveal>
           </figure>

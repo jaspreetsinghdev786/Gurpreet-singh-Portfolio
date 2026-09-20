@@ -1,18 +1,17 @@
 import { ArrowRight, MagnifyingGlassPlus } from "@phosphor-icons/react"
 import { RevealImage } from "../ui/reveal"
 import { Photo } from "../ui/photo"
+import { TiltCard } from "../ui/TiltCard"
+import { archiveFilters } from "../../content/archive"
+
+const tagLabel = key => archiveFilters.find(filter => filter.key === key)?.label || key
 
 /**
  * The hang.
  *
- * Two plates to a row on a twelve-column field, in a two-row measure: a wide
- * plate and a narrow one, then a matched pair. The measure repeats down the
- * page, so the rhythm holds however many items the filter leaves behind, and
- * the wall never falls into a single repeated card size.
- *
- * Column spans and frame proportions are set in CSS (.ah-card:nth-child) so the
- * measure stays in one place. Within a row the frames stretch to a common
- * height, which is what keeps the caption rules aligned across the page.
+ * Three compact columns on desktop, two on tablets and one on phones.
+ * Frame proportions follow each record's format, with a height cap so portrait
+ * images remain comfortable to browse. The full image opens in the viewer.
  *
  * Every plate is a button: the whole card opens the viewer, and the loupe in
  * the corner is the visible affordance for it.
@@ -25,7 +24,7 @@ const Loupe = () => (
 )
 
 const Empty = () => (
-  <p className="py-24 text-center text-[15px] text-ivory/50">
+  <p className="ah-empty py-24 text-center text-[15px] text-ivory/50">
     Nothing under this filter yet. Choose another view.
   </p>
 )
@@ -36,16 +35,16 @@ export const ArchiveGrid = ({ items, onOpen }) => {
   return (
     <ul className="ah-hang">
       {items.map((item, i) => (
-        <li key={item.id} className="ah-card">
-          <button type="button" className="ah-card-btn" onClick={() => onOpen(i)}>
+        <li key={item.id} className="ah-card" data-format={item.size}>
+          <TiltCard delay={(i % 3) * .08}>
+          <button type="button" className="ah-card-btn" data-cursor="view" onClick={() => onOpen(i)}>
             <span className="ah-card-media">
               <RevealImage className="ah-frame" curtain="bg-charcoal" seed={i}>
                 <Photo
                   id={item.id}
                   alt={item.alt}
-                  width={1600}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 52vw, 640px"
-                  priority={i < 2}
+                  width={700}
+                  sizes="(max-width: 560px) 90vw, (max-width: 1023px) 44vw, (max-width: 1216px) 29vw, 363px"
                 />
               </RevealImage>
               <Loupe />
@@ -54,7 +53,7 @@ export const ArchiveGrid = ({ items, onOpen }) => {
             <span className="ah-card-foot">
               <span className="ah-card-lines">
                 <span className="ah-card-caption">{item.caption}</span>
-                <span className="ah-card-tag">{item.tags[0]}</span>
+                <span className="ah-card-tag">{String(i + 1).padStart(2, "0")} / {tagLabel(item.tags[0])}</span>
               </span>
               <span className="ah-card-arrow" aria-hidden="true">
                 <ArrowRight size={16} weight="regular" />
@@ -63,6 +62,7 @@ export const ArchiveGrid = ({ items, onOpen }) => {
 
             <span className="sr-only">View larger: {item.alt}</span>
           </button>
+          </TiltCard>
         </li>
       ))}
     </ul>

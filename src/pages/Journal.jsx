@@ -14,7 +14,7 @@ const Rail = ({ words, className = "", tone = "dark" }) => (
   <div aria-hidden="true" className={className}>
     <ul
       className={`space-y-1.5 text-[9.5px] tracking-[0.26em] uppercase ${
-        tone === "light" ? "text-charcoal/40" : "text-ivory/40"
+        tone === "light" ? "text-dark-text/40" : "text-ivory/40"
       }`}
     >
       {words.map((w) => (
@@ -22,7 +22,7 @@ const Rail = ({ words, className = "", tone = "dark" }) => (
       ))}
     </ul>
     <div
-      className={`mt-5 h-14 w-px bg-gradient-to-b ${tone === "light" ? "from-charcoal/25" : "from-gold/45"} to-transparent`}
+      className={`mt-5 h-14 w-px ${tone === "light" ? "bg-charcoal/25" : "bg-gold/45"}`}
     />
   </div>
 )
@@ -67,11 +67,11 @@ export const Journal = () => (
                 <span className="h-px w-14 bg-gold/60" aria-hidden="true" />
               </div>
 
-              <h2 className="display mt-7 max-w-[16ch] text-[clamp(1.9rem,3vw,2.5rem)] leading-[1.12] text-charcoal">
+              <h2 className="display mt-7 max-w-[16ch] text-[clamp(1.9rem,3vw,2.5rem)] leading-[1.12] text-dark-text">
                 {journalIntro.heading}
               </h2>
 
-              <div className="mt-8 max-w-[52ch] space-y-6 text-[16px] leading-[1.8] text-charcoal/65">
+              <div className="mt-8 max-w-[52ch] space-y-6 text-[16px] leading-[1.8] text-cream-muted">
                 {journalIntro.paragraphs.map((p) => (
                   <p key={p.slice(0, 24)}>{p}</p>
                 ))}
@@ -81,7 +81,7 @@ export const Journal = () => (
             <Reveal delay={0.1}>
               <Link
                 to="/archive"
-                className="group mt-11 inline-flex items-center gap-8 border border-gold/50 px-8 py-[1.1rem] text-[11px] tracking-[0.26em] text-charcoal uppercase transition-colors duration-300 hover:border-gold hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                className="group mt-11 inline-flex items-center gap-8 border border-gold/50 px-8 py-[1.1rem] text-[11px] tracking-[0.26em] text-dark-text uppercase transition-colors duration-300 hover:border-gold hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 {j.intro.cta}
                 <ArrowRight
@@ -105,7 +105,7 @@ export const Journal = () => (
                 />
               </RevealImage>
 
-              <figcaption className="mt-5 flex flex-wrap items-center gap-x-3 text-[10px] tracking-[0.26em] text-charcoal/45 uppercase">
+              <figcaption className="mt-5 flex flex-wrap items-center gap-x-3 text-[10px] tracking-[0.26em] text-dark-text/45 uppercase">
                 {j.intro.strip.map((w, i) => (
                   <span key={w} className="flex items-center gap-3">
                     {i > 0 && (
@@ -118,13 +118,13 @@ export const Journal = () => (
                 ))}
               </figcaption>
 
-              <p className="font-script mt-5 max-w-[24ch] text-[19px] leading-[1.4] text-charcoal/45 lg:hidden">
+              <p className="font-script mt-5 max-w-[24ch] text-[19px] leading-[1.4] text-dark-text/45 lg:hidden">
                 {j.intro.note}
               </p>
             </figure>
 
             <div aria-hidden="true" className="hidden w-28 shrink-0 pt-6 lg:block">
-              <p className="font-script -rotate-3 text-[19px] leading-[1.4] text-charcoal/45">{j.intro.note}</p>
+              <p className="font-script -rotate-3 text-[19px] leading-[1.4] text-dark-text/45">{j.intro.note}</p>
               <Rail words={j.intro.rail} tone="light" className="mt-10" />
             </div>
           </div>
@@ -137,7 +137,7 @@ export const Journal = () => (
       <section className="border-t border-gold/15 bg-charcoal">
         <div className="mx-auto max-w-[84rem] px-6 py-20 lg:px-8 2xl:max-w-[100rem] 2xl:px-16">
           <h2 className="display text-[clamp(1.9rem,3vw,2.5rem)] leading-tight text-ivory">Latest writing</h2>
-          <ul className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="editorial-work-grid mt-12">
             {articles.map((a, i) => (
               <li key={a.slug}>
                 <Link
@@ -154,7 +154,7 @@ export const Journal = () => (
                   </RevealImage>
                   <Reveal delay={(i % 3) * 0.06 + 0.08}>
                     <h3 className="display mt-5 text-[1.4rem] leading-snug text-ivory">{a.title}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-ivory/55">{a.excerpt}</p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted">{a.excerpt}</p>
                   </Reveal>
                 </Link>
               </li>
@@ -178,35 +178,23 @@ export const Journal = () => (
               {j.threads.heading}
             </h2>
 
-            <p className="mt-6 max-w-[44ch] text-[16px] leading-[1.75] text-ivory/60">{j.threads.intro}</p>
+            <p className="mt-6 max-w-[44ch] text-[16px] leading-[1.75] text-muted">{j.threads.intro}</p>
           </Reveal>
 
           <Rail words={j.threads.rail} className="hidden pt-2 lg:block" />
         </div>
 
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="journal-threads mt-14 grid gap-x-12 sm:grid-cols-2">
           {journalCategories.map((c, i) => {
             const count = articles.filter((a) => a.category === c.key).length
             return (
               <li key={c.key}>
-                <Reveal delay={(i % 3) * 0.06} className="relative isolate overflow-hidden">
-                  <Photo
-                    id={c.photo.id}
-                    alt=""
-                    width={700}
-                    sizes="(max-width: 640px) 100vw, 400px"
-                    className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 -z-10 bg-gradient-to-br from-charcoal/92 via-charcoal/70 to-charcoal/40"
-                  />
-
-                  <div className="flex min-h-[13rem] flex-col justify-between gap-6 border border-gold/20 p-6">
+                <Reveal delay={(i % 2) * 0.06}>
+                  <div className="flex flex-col justify-between gap-6 border-t border-gold/25 py-8">
                     <div>
                       <span className="text-[11px] tracking-[0.24em] text-gold">{c.n}</span>
                       <h3 className="display mt-4 text-[1.35rem] leading-tight text-ivory">{c.label}</h3>
-                      <p className="mt-2 max-w-[30ch] text-[14px] leading-[1.6] text-ivory/60">{c.desc}</p>
+                      <p className="mt-2 max-w-[30ch] text-[14px] leading-[1.6] text-muted">{c.desc}</p>
                     </div>
 
                     {count > 0 && (
@@ -232,7 +220,7 @@ export const Journal = () => (
       <div className="mx-auto max-w-[84rem] px-6 py-14 lg:px-8 2xl:max-w-[100rem] 2xl:px-16">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)_minmax(0,0.5fr)]">
           <Reveal>
-            <blockquote className="font-serif pb-1 text-[clamp(1.3rem,2.2vw,1.8rem)] leading-[1.4] text-charcoal italic">
+            <blockquote className="font-serif pb-1 text-[clamp(1.3rem,2.2vw,1.8rem)] leading-[1.4] text-dark-text italic">
               “{j.closing.line}”
             </blockquote>
             <div className="mt-6 flex items-center gap-4">
@@ -253,7 +241,7 @@ export const Journal = () => (
 
           <p
             aria-hidden="true"
-            className="font-script hidden text-[19px] leading-[1.45] text-charcoal/40 lg:block"
+            className="font-script hidden text-[19px] leading-[1.45] text-dark-text/40 lg:block"
           >
             {j.closing.note.map((line) => (
               <span key={line} className="block">

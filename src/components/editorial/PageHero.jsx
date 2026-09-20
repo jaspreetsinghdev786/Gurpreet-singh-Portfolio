@@ -20,11 +20,11 @@ export const PageHero = ({ eyebrow, title, lead, sub, words, artwork, tone = "da
       <div className="page-hero-layout relative z-10">
         <div className="page-hero-copy">
           {eyebrow && <Reveal><p className={`text-[11px] font-medium tracking-[0.3em] uppercase ${light ? "text-gold" : "text-gold-light"}`}>{eyebrow}</p></Reveal>}
-          <h1 className={`display mt-6 text-balance ${light ? "text-charcoal" : "text-ivory"}`}>
+          <h1 className={`display mt-6 text-balance ${light ? "text-dark-text" : "text-ivory"}`}>
             {typeof title === "string" ? <RevealWords text={title} delay={0.1} /> : title}
           </h1>
-          {sub && <Reveal delay={.15}><p className={`page-hero-sub mt-6 uppercase ${light ? "text-charcoal/55" : "text-ivory/55"}`}>{sub}</p></Reveal>}
-          {lead && <Reveal delay={.2}><p className={`page-hero-lead ${light ? "text-charcoal/65" : "text-ivory/70"}`}>{lead}</p></Reveal>}
+          {sub && <Reveal delay={.15}><p className={`page-hero-sub mt-6 uppercase ${light ? "text-cream-muted" : "text-muted"}`}>{sub}</p></Reveal>}
+          {lead && <Reveal delay={.2}><p className={`page-hero-lead ${light ? "text-cream-muted" : "text-ivory/70"}`}>{lead}</p></Reveal>}
           {words && <ul className="page-hero-words">{words.map(word => <li key={word}>{word}</li>)}</ul>}
         </div>
         {artwork && <HeroArtwork artwork={artwork} />}
