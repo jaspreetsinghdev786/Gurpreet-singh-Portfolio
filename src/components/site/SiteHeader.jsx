@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { useLenis } from "lenis/react"
 import { List, X, ArrowRight } from "@phosphor-icons/react"
 import { nav, site, cta } from "../../content/site"
+import { BrandLogo } from "./BrandScreen"
 
 const ring = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light"
 
@@ -78,10 +79,10 @@ export const SiteHeader = () => {
     >
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-8 px-6 lg:px-8">
         <Link to="/" className={`shrink-0 leading-none ${ring}`} aria-label={`${site.name}, home`}>
-          <motion.span className="atelier-wordmark"
+          <motion.span className="site-logo"
           initial={reduce ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0, scale: scrolled ? .94 : 1 }}
           transition={{ duration: reduce ? 0 : .75, ease: [0.22, 1, 0.36, 1] }}>
-            <span>Gurpreet Singh</span><small>ARTIST & EDUCATOR</small>
+            <BrandLogo priority />
           </motion.span>
         </Link>
 
@@ -142,7 +143,7 @@ export const SiteHeader = () => {
             className="fixed inset-0 z-[45] flex flex-col bg-charcoal px-6 pt-24 pb-10 lg:hidden"
           >
             <div className="absolute top-0 right-0 left-0 flex h-20 items-center justify-between px-6">
-              <span className="atelier-wordmark"><span>Gurpreet Singh</span><small>ARTIST & EDUCATOR</small></span>
+              <span className="site-logo"><BrandLogo priority /></span>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className={`p-1 text-ivory ${ring}`}>
                 <X size={26} />
               </button>

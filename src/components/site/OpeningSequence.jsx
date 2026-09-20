@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { useLenis } from "lenis/react"
 import { useSceneMotion } from "./DepthProvider"
+import { BrandLogo } from "./BrandScreen"
 
 let opened = false
 
@@ -57,7 +58,7 @@ export const OpeningSequence = () => {
 
   return <AnimatePresence>{visible && !reduce && <motion.div className="opening-sequence"
     exit={{ opacity:0, y:"-3%" }} transition={{ duration:.65, ease:[.22,1,.36,1] }} aria-hidden="true">
-    <div><span className="opening-sequence__name">Gurpreet Singh</span><span className="opening-sequence__subtitle">ARTIST & EDUCATOR</span>
+    <div><BrandLogo priority />
       <div className="opening-sequence__track"><motion.span animate={{ scaleX:progress / 100 }} transition={{ duration:.3 }} /></div>
       <p><span>Opening the collection</span><span>{progress}%</span></p>
     </div>

@@ -5,6 +5,7 @@ import { socials } from "../../content/contact"
 import { SocialLinks } from "../editorial/SocialLinks"
 import { Reveal } from "../ui/reveal"
 import { SignatureStroke } from "../ui/SignatureStroke"
+import { BrandLogo } from "./BrandScreen"
 
 /**
  * The footer.
@@ -38,7 +39,7 @@ export const SiteFooter = () => {
       <div className="sf-inner">
         <Reveal variant="lift" className="sf-cols">
           <div className="sf-brand">
-            <Link to="/" className="atelier-wordmark" aria-label={`${site.name}, home`}><span>Gurpreet Singh</span><small>ARTIST & EDUCATOR</small></Link>
+            <Link to="/" className="footer-logo" aria-label={`${site.name}, home`}><BrandLogo /></Link>
             <p className="sf-tagline">{site.tagline}</p>
             <div className="sf-hair" aria-hidden="true" />
             <p className="sf-motto">{footer.motto}</p>

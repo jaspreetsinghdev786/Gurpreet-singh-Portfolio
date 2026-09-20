@@ -12,8 +12,9 @@
 .brand-screen-overlay { min-height: 100%; height: 100%; }
 .brand-screen-content { position: relative; z-index: 1; width: min(100%, 490px); text-align: center; }
 .brand-screen-logo { display: block; width: 100%; height: auto; object-fit: contain; }
-.brand-wordmark>span { display:block;font:400 clamp(38px,5vw,64px)/1.2 var(--font-serif);letter-spacing:-.045em; }
-.brand-wordmark>small { display:block;margin-top:14px;font:500 9px/1.5 var(--font-sans);letter-spacing:.25em;color:var(--peach); }
+.site-logo { display:block;width:210px;max-width:100%;transform-origin:left center; }
+.footer-logo { display:block;width:320px;max-width:100%; }
+@media(max-width:760px){.site-logo{width:180px}.footer-logo{width:280px}}
 .brand-screen-motto { margin-top: 22px; font: italic clamp(16px, 2vw, 21px)/1.5 var(--font-serif); color: #d9d2cd; }
 .brand-screen-line { width: 120px; height: 2px; margin: 32px auto 20px; overflow: hidden; background: #d7a69c30; }
 .brand-screen-line span { display: block; width: 45%; height: 100%; background: #d7a69c; animation: brand-loading 1.25s ease-in-out infinite; }
