@@ -91,6 +91,12 @@
 .editorial-site #record>div>div:last-child { margin-top:48px;padding-block:32px; }
 .editorial-site .home-content>#collections { padding-top:80px;border-top:1px solid #3b48661a; }
 .editorial-site .home-content>.deeper-stories { padding-top:0; }
+/* Homepage chapters share a compact rhythm. Adjacent paper sections split
+   one gutter instead of stacking two full section paddings. */
+.editorial-site .home-content { --section-space:clamp(64px,5.2vw,88px); }
+.editorial-site .home-content>#about { padding-bottom:calc(var(--section-space) / 2); }
+.editorial-site .home-content>.selected-practice { padding-top:calc(var(--section-space) / 2); }
+.editorial-site .home-content .practice-heading { margin-bottom:36px; }
 .editorial-site .archive-page .ah-card:first-child { grid-column:span 2; }
 .editorial-site .archive-page .ah-card:first-child .ah-card-media { aspect-ratio:16/10;max-height:460px; }
 .editorial-site .archive-page .archive-container { padding-block:var(--section-space); }

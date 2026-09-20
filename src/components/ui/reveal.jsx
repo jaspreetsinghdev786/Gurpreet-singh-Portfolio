@@ -8,7 +8,9 @@ const REVEAL_STATES = {
   lift: { hidden: { opacity: 0, y: 28, rotateX: 3 }, shown: { opacity: 1, y: 0, rotateX: 0 } },
   left: { hidden: { opacity: 0, x: -38, y: 8 }, shown: { opacity: 1, x: 0, y: 0 } },
   right: { hidden: { opacity: 0, x: 38, y: 8 }, shown: { opacity: 1, x: 0, y: 0 } },
-  clip: { hidden: { opacity: 0.5, y: 10, clipPath: "inset(0 0 100% 0)" }, shown: { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" } },
+  // A fully clipped observer target has no visible intersection and can stay
+  // hidden forever. Keep a visible area so the viewport reveal can begin.
+  clip: { hidden: { opacity: 0.7, y: 8, clipPath: "inset(0 0 12% 0)" }, shown: { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" } },
   rotate: { hidden: { opacity: 0, y: 20, rotate: -2.2 }, shown: { opacity: 1, y: 0, rotate: 0 } },
   scale: { hidden: { opacity: 0, scale: 0.94 }, shown: { opacity: 1, scale: 1 } },
   soft: { hidden: { opacity: 0, y: 14, filter: "blur(4px)" }, shown: { opacity: 1, y: 0, filter: "blur(0px)" } },
